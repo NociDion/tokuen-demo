@@ -1,0 +1,3202 @@
+@import 'admin-lte/dist/css/adminlte.css';
+@import 'tailwindcss';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+:root {
+    --tokuen-ink: #090d3f;
+    --tokuen-muted: #69709a;
+    --tokuen-blue: #3158f5;
+    --tokuen-violet: #7b3ff2;
+    --tokuen-soft: #f6f7ff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+.app-body {
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    font-family: var(--font-sans);
+    color: var(--tokuen-ink);
+    background: var(--tokuen-soft);
+}
+
+.tokuen-login-page {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background:
+        radial-gradient(circle at 82% 16%, rgba(181, 139, 255, 0.6), transparent 30%),
+        radial-gradient(circle at 18% 88%, rgba(28, 95, 255, 0.78), transparent 36%),
+        linear-gradient(135deg, #05093f 0%, #101f82 46%, #7437ee 100%);
+}
+
+.tokuen-password-page,
+.tokuen-otp-page {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background:
+        radial-gradient(circle at 82% 16%, rgba(181, 139, 255, 0.6), transparent 30%),
+        radial-gradient(circle at 18% 88%, rgba(28, 95, 255, 0.78), transparent 36%),
+        linear-gradient(135deg, #05093f 0%, #101f82 46%, #7437ee 100%);
+}
+
+.tokuen-password-page::before,
+.tokuen-otp-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(115deg, rgba(255, 255, 255, 0.12), transparent 28%, rgba(255, 255, 255, 0.08) 62%, transparent),
+        radial-gradient(circle at 72% 54%, rgba(255, 255, 255, 0.13), transparent 26%),
+        linear-gradient(rgba(255, 255, 255, 0.052) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.052) 1px, transparent 1px);
+    background-size: auto, auto, 48px 48px, 48px 48px;
+    opacity: 0.52;
+}
+
+.tokuen-password-page::after,
+.tokuen-otp-page::after {
+    content: "";
+    position: absolute;
+    right: -170px;
+    bottom: -230px;
+    width: 780px;
+    height: 780px;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    border-radius: 50%;
+    pointer-events: none;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.tokuen-password-shell {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 430px);
+    gap: 64px;
+    align-items: center;
+    width: min(1040px, calc(100% - 48px));
+    flex: 1 1 auto;
+    min-height: 0;
+    margin: 0 auto;
+    padding: 0 0 48px;
+}
+
+.tokuen-password-hero {
+    color: #ffffff;
+}
+
+.tokuen-password-hero h1 {
+    margin: 0 0 22px;
+    color: #ffffff;
+    max-width: 620px;
+    font-size: clamp(4rem, 6vw, 6rem);
+    font-weight: 800;
+    line-height: 0.95;
+    text-wrap: balance;
+}
+
+.tokuen-password-hero p {
+    max-width: 520px;
+    margin: 0;
+    color: #eef1ff;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.tokuen-password-main {
+    position: relative;
+    z-index: 2;
+}
+
+.tokuen-password-card {
+    width: 100%;
+}
+
+.tokuen-password-actions {
+    display: grid;
+    gap: 12px;
+}
+
+.tokuen-secondary-btn {
+    min-height: 56px;
+    border: 1px solid #dfe4f6;
+    border-radius: 10px;
+    color: var(--tokuen-violet);
+    font-weight: 800;
+    background: rgba(249, 250, 255, 0.88);
+}
+
+.tokuen-secondary-btn:hover,
+.tokuen-secondary-btn:focus {
+    border-color: rgba(123, 63, 242, 0.3);
+    color: var(--tokuen-violet);
+    background: #ffffff;
+}
+
+.tokuen-otp-status {
+    margin: -8px 0 16px;
+    padding: 12px 14px;
+    border: 1px solid rgba(123, 63, 242, 0.16);
+    border-radius: 10px;
+    color: #3f4778;
+    background: rgba(123, 63, 242, 0.06);
+    font-weight: 800;
+}
+
+.tokuen-otp-label {
+    display: block;
+    margin-bottom: 7px;
+    color: #343d72;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.tokuen-login-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(115deg, rgba(255, 255, 255, 0.12), transparent 28%, rgba(255, 255, 255, 0.08) 62%, transparent),
+        radial-gradient(circle at 72% 54%, rgba(255, 255, 255, 0.13), transparent 26%),
+        linear-gradient(rgba(255, 255, 255, 0.052) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.052) 1px, transparent 1px);
+    background-size: auto, auto, 48px 48px, 48px 48px;
+    opacity: 0.52;
+}
+
+.tokuen-login-page::after {
+    content: "";
+    position: absolute;
+    right: -170px;
+    bottom: -230px;
+    width: 780px;
+    height: 780px;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    border-radius: 50%;
+    pointer-events: none;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.tokuen-login-topbar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: min(1160px, calc(100% - 48px));
+    margin: 0 auto;
+    flex: 0 0 auto;
+    padding: 24px 0 10px;
+}
+
+.tokuen-secure-pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0 18px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 16px 40px rgba(18, 13, 79, 0.18);
+    backdrop-filter: blur(18px);
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.tokuen-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    color: #ffffff;
+}
+
+.tokuen-brand-mark {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border-radius: 0;
+    background: transparent;
+    color: #ffffff;
+    font-weight: 800;
+    box-shadow: none;
+}
+
+.tokuen-brand-mark img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.tokuen-login-shell {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(370px, 430px);
+    gap: 64px;
+    align-items: center;
+    width: min(1160px, calc(100% - 48px));
+    flex: 1 1 auto;
+    min-height: 0;
+    margin: 0 auto;
+    padding: 0 0 28px;
+}
+
+.tokuen-hero-panel {
+    position: relative;
+    min-height: 0;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    border: 0;
+    border-radius: 0;
+    color: #ffffff;
+    background: transparent;
+    box-shadow: none;
+}
+
+.tokuen-hero-panel::before {
+    display: none;
+}
+
+.tokuen-hero-panel::after {
+    display: none;
+}
+
+.tokuen-hero-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+}
+
+.tokuen-kicker {
+    display: inline-flex;
+    margin-bottom: 20px;
+    color: #e3e7ff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.tokuen-hero-copy h1 {
+    margin: 0 0 22px;
+    color: #ffffff;
+    font-size: clamp(3.65rem, 6.2vw, 5.8rem);
+    font-weight: 800;
+    line-height: 0.95;
+    max-width: 780px;
+}
+
+.tokuen-hero-copy p {
+    margin: 0;
+    color: #eef1ff;
+    max-width: 560px;
+    font-size: 1.08rem;
+    line-height: 1.65;
+    text-shadow: 0 1px 16px rgba(4, 8, 55, 0.28);
+}
+
+.tokuen-login-main {
+    position: relative;
+    align-self: center;
+    z-index: 2;
+}
+
+.tokuen-login-box {
+    width: 100%;
+}
+
+.tokuen-login-logo {
+    margin-bottom: 18px;
+    color: #ffffff;
+    font-size: 1.95rem;
+    font-weight: 800;
+    text-align: left;
+}
+
+.tokuen-login-logo small {
+    display: block;
+    margin-top: 8px;
+    color: #edf0ff;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.tokuen-auth-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    border-radius: 14px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(246, 248, 255, 0.88));
+    box-shadow: 0 36px 110px rgba(4, 7, 50, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(22px);
+}
+
+.tokuen-auth-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 5px;
+    background: linear-gradient(90deg, #3158f5, #7b3ff2, #b993ff);
+}
+
+.tokuen-auth-card::after {
+    content: "";
+    position: absolute;
+    top: -80px;
+    right: -90px;
+    width: 220px;
+    height: 220px;
+    border: 1px solid rgba(123, 63, 242, 0.12);
+    border-radius: 50%;
+    background: rgba(123, 63, 242, 0.05);
+    pointer-events: none;
+}
+
+.tokuen-auth-card .login-card-body {
+    position: relative;
+    z-index: 1;
+    padding: 34px 36px 32px;
+    color: var(--tokuen-ink);
+    background: transparent;
+}
+
+.tokuen-auth-card .login-box-msg {
+    margin-bottom: 24px;
+    padding: 0;
+    color: var(--tokuen-ink);
+    font-weight: 800;
+    text-align: left;
+}
+
+.tokuen-input-group .form-control,
+.tokuen-input-group .input-group-text {
+    min-height: 56px;
+    border-color: #dfe4f6;
+    background: rgba(249, 250, 255, 0.92);
+}
+
+.tokuen-input-group .form-control {
+    border-radius: 10px 0 0 10px;
+    color: var(--tokuen-ink);
+    font-weight: 600;
+}
+
+.tokuen-input-group .input-group-text {
+    width: 52px;
+    justify-content: center;
+    border-radius: 0 10px 10px 0;
+    color: #5d68a5;
+}
+
+.tokuen-input-group .form-control:focus {
+    border-color: var(--tokuen-blue);
+    box-shadow: 0 0 0 0.2rem rgba(49, 88, 245, 0.14);
+}
+
+.tokuen-field-error {
+    margin: -8px 0 12px;
+    color: #dc3545;
+    font-size: 0.86rem;
+}
+
+.tokuen-auth-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 16px 0 26px;
+    color: var(--tokuen-muted);
+    font-size: 0.9rem;
+}
+
+.tokuen-auth-row a,
+.tokuen-auth-links a {
+    color: var(--tokuen-violet);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.tokuen-login-btn {
+    min-height: 56px;
+    border: 0;
+    border-radius: 10px;
+    color: #ffffff;
+    font-weight: 800;
+    background: linear-gradient(135deg, #3158f5 0%, #5e42f4 48%, #7b3ff2 100%);
+    box-shadow: 0 22px 42px rgba(86, 75, 237, 0.34);
+    transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+}
+
+.tokuen-login-btn:hover,
+.tokuen-login-btn:focus {
+    color: #ffffff;
+    filter: brightness(1.04);
+    transform: translateY(-1px);
+    box-shadow: 0 26px 48px rgba(86, 75, 237, 0.38);
+}
+
+.tokuen-auth-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(218, 224, 246, 0.9);
+    font-size: 0.92rem;
+}
+
+@media (max-width: 860px) {
+    html,
+    body,
+    .app-body,
+    .tokuen-login-page {
+        height: 100vh;
+        min-height: 100vh;
+        overflow: hidden;
+    }
+
+    .tokuen-login-topbar,
+    .tokuen-login-shell {
+        width: min(100% - 28px, 640px);
+    }
+
+    .tokuen-login-shell {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        min-height: 0;
+        padding: 8px 0 14px;
+    }
+
+    .tokuen-hero-panel {
+        height: auto;
+        min-height: auto;
+        padding: 8px 0 0;
+    }
+
+    .tokuen-hero-copy {
+        max-width: 100%;
+    }
+
+    .tokuen-kicker {
+        margin-bottom: 8px;
+        font-size: 0.76rem;
+    }
+
+    .tokuen-hero-copy h1 {
+        max-width: 620px;
+        margin-bottom: 10px;
+        font-size: clamp(2.75rem, 11vw, 4.15rem);
+    }
+
+    .tokuen-hero-copy p {
+        max-width: 560px;
+        font-size: 0.96rem;
+        line-height: 1.45;
+    }
+
+    .tokuen-login-main {
+        width: 100%;
+        align-self: stretch;
+    }
+
+    .tokuen-login-logo {
+        margin-bottom: 10px;
+    }
+
+    .tokuen-login-box {
+        max-width: 440px;
+        margin-inline: auto;
+    }
+
+    .tokuen-password-page {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .tokuen-password-shell {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        width: min(100% - 28px, 640px);
+        padding: 8px 0 16px;
+    }
+
+    .tokuen-password-hero h1 {
+        margin-bottom: 10px;
+        font-size: clamp(2.8rem, 11vw, 4.2rem);
+    }
+
+    .tokuen-password-hero p {
+        font-size: 0.96rem;
+        line-height: 1.45;
+    }
+
+    .tokuen-password-main {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .tokuen-login-topbar {
+        align-items: center;
+        flex-direction: row;
+        gap: 10px;
+        padding: 10px 0 0;
+    }
+
+    .tokuen-brand {
+        gap: 12px;
+        font-size: 1.05rem;
+    }
+
+    .tokuen-brand-mark {
+        width: 40px;
+        height: 40px;
+        border-radius: 11px;
+    }
+
+    .tokuen-login-shell {
+        width: min(100% - 24px, 420px);
+        gap: 8px;
+        padding: 8px 0 10px;
+    }
+
+    .tokuen-hero-panel {
+        padding: 4px 0 0;
+    }
+
+    .tokuen-hero-copy h1 {
+        font-size: clamp(2.25rem, 11.5vw, 2.95rem);
+        line-height: 0.98;
+        margin-bottom: 8px;
+    }
+
+    .tokuen-hero-copy p {
+        font-size: 0.86rem;
+        line-height: 1.4;
+    }
+
+    .tokuen-login-logo {
+        font-size: 1.35rem;
+        margin-bottom: 8px;
+    }
+
+    .tokuen-login-logo small {
+        margin-top: 4px;
+        font-size: 0.78rem;
+    }
+
+    .tokuen-auth-card .login-card-body {
+        padding: 24px 20px 18px;
+    }
+
+    .tokuen-auth-card .login-box-msg {
+        margin-bottom: 16px;
+    }
+
+    .tokuen-input-group .form-control,
+    .tokuen-input-group .input-group-text {
+        min-height: 48px;
+    }
+
+    .tokuen-auth-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+        margin: 10px 0 14px;
+    }
+
+    .tokuen-login-btn {
+        min-height: 50px;
+    }
+
+    .tokuen-auth-links {
+        gap: 12px;
+        margin-top: 16px;
+        padding-top: 14px;
+    }
+
+    .tokuen-password-shell {
+        width: min(100% - 24px, 420px);
+        gap: 10px;
+        padding: 8px 0 10px;
+    }
+
+    .tokuen-password-hero h1 {
+        font-size: clamp(2.35rem, 11vw, 3.1rem);
+        line-height: 0.98;
+    }
+
+    .tokuen-password-hero p {
+        font-size: 0.86rem;
+        line-height: 1.4;
+    }
+
+    .tokuen-secondary-btn {
+        min-height: 50px;
+    }
+}
+
+@media (max-width: 360px) {
+    .tokuen-hero-copy h1 {
+        font-size: 2.25rem;
+    }
+
+    .tokuen-auth-card .login-card-body {
+        padding-inline: 16px;
+    }
+}
+
+.tokuen-register-page {
+    height: 100vh;
+    overflow: hidden;
+    padding: 26px;
+    background:
+        radial-gradient(circle at 82% 16%, rgba(181, 139, 255, 0.6), transparent 30%),
+        radial-gradient(circle at 18% 88%, rgba(28, 95, 255, 0.78), transparent 36%),
+        linear-gradient(135deg, #05093f 0%, #101f82 46%, #7437ee 100%);
+}
+
+.tokuen-register-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(115deg, rgba(255, 255, 255, 0.12), transparent 28%, rgba(255, 255, 255, 0.08) 62%, transparent),
+        linear-gradient(rgba(255, 255, 255, 0.052) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.052) 1px, transparent 1px);
+    background-size: auto, 48px 48px, 48px 48px;
+    opacity: 0.52;
+}
+
+.tokuen-register-shell {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(300px, 400px) minmax(0, 760px);
+    gap: 28px;
+    width: min(1180px, 100%);
+    min-height: calc(100vh - 52px);
+    margin: 0 auto;
+    align-items: start;
+    justify-content: center;
+}
+
+.tokuen-register-hero {
+    overflow: hidden;
+    display: flex;
+    min-height: calc(100vh - 52px);
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 34px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+    color: #ffffff;
+    background:
+        radial-gradient(circle at 86% 10%, rgba(181, 139, 255, 0.6), transparent 32%),
+        radial-gradient(circle at 4% 100%, rgba(38, 101, 255, 0.64), transparent 40%),
+        rgba(255, 255, 255, 0.08);
+    box-shadow: 0 32px 90px rgba(4, 7, 50, 0.24);
+    backdrop-filter: blur(18px);
+}
+
+.tokuen-register-hero::after {
+    content: "";
+    position: absolute;
+    right: -180px;
+    bottom: -190px;
+    width: 420px;
+    height: 420px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+}
+
+.tokuen-register-hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+.tokuen-register-hero h1 {
+    margin: 18px 0 16px;
+    color: #ffffff;
+    max-width: 100%;
+    font-size: clamp(2.65rem, 3.5vw, 3.65rem);
+    font-weight: 800;
+    line-height: 1.02;
+    text-wrap: balance;
+}
+
+.tokuen-register-hero p {
+    max-width: 390px;
+    margin: 0;
+    color: #eef1ff;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.tokuen-register-notes {
+    display: grid;
+    gap: 12px;
+}
+
+.tokuen-register-notes span {
+    display: block;
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+
+.tokuen-register-card {
+    position: relative;
+    overflow: auto;
+    align-self: start;
+    width: 100%;
+    max-height: calc(100vh - 52px);
+    padding: 42px 38px 34px;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(246, 248, 255, 0.9));
+    box-shadow: 0 34px 100px rgba(4, 7, 50, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(22px);
+    scrollbar-width: none;
+}
+
+.tokuen-register-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    height: 5px;
+    background: linear-gradient(90deg, #3158f5, #7b3ff2, #b993ff);
+}
+
+.tokuen-register-card::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.tokuen-register-card::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba(123, 63, 242, 0.45);
+}
+
+.tokuen-register-heading {
+    margin-bottom: 26px;
+}
+
+.tokuen-register-heading h2 {
+    margin: 0;
+    color: var(--tokuen-ink);
+    font-size: 2.25rem;
+    font-weight: 800;
+}
+
+.tokuen-register-heading p {
+    margin: 6px 0 0;
+    color: var(--tokuen-muted);
+}
+
+.tokuen-register-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 18px;
+}
+
+.tokuen-register-form h3 {
+    grid-column: 1 / -1;
+    margin: 6px 0 0;
+    padding-top: 10px;
+    color: var(--tokuen-ink);
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.tokuen-register-form div:not(.tokuen-register-actions) {
+    min-width: 0;
+}
+
+.tokuen-register-form label {
+    display: block;
+    margin-bottom: 6px;
+    color: #343d72;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.tokuen-required {
+    color: #7b3ff2;
+    font-weight: 800;
+}
+
+.tokuen-register-form input,
+.tokuen-register-form select,
+.tokuen-register-form .ts-control {
+    width: 100%;
+    min-height: 48px;
+    border: 1px solid #dfe4f6;
+    border-radius: 10px;
+    background: rgba(250, 251, 255, 0.96);
+    color: var(--tokuen-ink);
+    font-weight: 600;
+}
+
+.tokuen-register-form input,
+.tokuen-register-form select {
+    padding: 0 14px;
+}
+
+.tokuen-register-form input:focus,
+.tokuen-register-form select:focus,
+.tokuen-register-form .focus .ts-control {
+    border-color: var(--tokuen-blue);
+    box-shadow: 0 0 0 0.2rem rgba(49, 88, 245, 0.14);
+    outline: 0;
+}
+
+.tokuen-register-form [wire\:ignore],
+.tokuen-register-form div:has(#address) {
+    grid-column: 1 / -1;
+}
+
+.tokuen-register-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(218, 224, 246, 0.9);
+}
+
+.tokuen-register-actions .tokuen-login-btn {
+    width: min(240px, 100%);
+}
+
+.tokuen-register-back {
+    color: var(--tokuen-violet);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.tokuen-register-form > p {
+    grid-column: 1 / -1;
+    margin: -4px 0 0;
+    color: #dc3545;
+    font-size: 0.86rem;
+}
+
+@media (max-width: 960px) {
+    .tokuen-register-page {
+        padding: 20px;
+        overflow: auto;
+    }
+
+    .tokuen-register-shell {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .tokuen-register-hero {
+        position: relative;
+        top: auto;
+        min-height: auto;
+        gap: 30px;
+        padding: 26px;
+    }
+
+    .tokuen-register-hero h1 {
+        max-width: 620px;
+        font-size: clamp(2.6rem, 9vw, 4rem);
+    }
+
+    .tokuen-register-notes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tokuen-register-card {
+        max-height: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .tokuen-register-page {
+        padding: 14px;
+    }
+
+    .tokuen-register-shell {
+        gap: 18px;
+    }
+
+    .tokuen-register-card {
+        padding: 28px 18px 20px;
+    }
+
+    .tokuen-register-form {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .tokuen-register-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .tokuen-register-actions .tokuen-login-btn {
+        width: 100%;
+    }
+}
+
+.tokuen-legal-page {
+    height: 100vh;
+    overflow: hidden;
+    padding: 26px;
+    background:
+        radial-gradient(circle at 82% 16%, rgba(181, 139, 255, 0.6), transparent 30%),
+        radial-gradient(circle at 18% 88%, rgba(28, 95, 255, 0.78), transparent 36%),
+        linear-gradient(135deg, #05093f 0%, #101f82 46%, #7437ee 100%);
+}
+
+.tokuen-legal-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(115deg, rgba(255, 255, 255, 0.12), transparent 28%, rgba(255, 255, 255, 0.08) 62%, transparent),
+        linear-gradient(rgba(255, 255, 255, 0.052) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.052) 1px, transparent 1px);
+    background-size: auto, 48px 48px, 48px 48px;
+    opacity: 0.52;
+}
+
+.tokuen-legal-shell {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(300px, 390px) minmax(0, 780px);
+    gap: 28px;
+    width: min(1180px, 100%);
+    height: calc(100vh - 52px);
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.tokuen-legal-hero,
+.tokuen-legal-card {
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    border-radius: 14px;
+    box-shadow: 0 34px 100px rgba(4, 7, 50, 0.28);
+    backdrop-filter: blur(22px);
+}
+
+.tokuen-legal-hero {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 34px 30px;
+    color: #ffffff;
+    background:
+        radial-gradient(circle at 86% 10%, rgba(181, 139, 255, 0.6), transparent 32%),
+        radial-gradient(circle at 4% 100%, rgba(38, 101, 255, 0.64), transparent 40%),
+        rgba(255, 255, 255, 0.08);
+}
+
+.tokuen-legal-hero::after {
+    content: "";
+    position: absolute;
+    right: -180px;
+    bottom: -190px;
+    width: 420px;
+    height: 420px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+}
+
+.tokuen-legal-hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+.tokuen-legal-hero h1 {
+    margin: 18px 0 16px;
+    color: #ffffff;
+    font-size: clamp(2.65rem, 3.5vw, 3.65rem);
+    font-weight: 800;
+    line-height: 1.02;
+    text-wrap: balance;
+}
+
+.tokuen-legal-hero p {
+    max-width: 360px;
+    margin: 0;
+    color: #eef1ff;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.tokuen-legal-nav {
+    display: grid;
+    gap: 12px;
+}
+
+.tokuen-legal-nav a {
+    display: block;
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.tokuen-legal-card {
+    position: relative;
+    overflow: auto;
+    padding: 42px 38px 34px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(246, 248, 255, 0.9));
+    scrollbar-width: thin;
+    scrollbar-color: rgba(123, 63, 242, 0.45) transparent;
+}
+
+.tokuen-legal-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #3158f5, #7b3ff2, #b993ff);
+}
+
+.tokuen-legal-card::-webkit-scrollbar {
+    width: 8px;
+}
+
+.tokuen-legal-card::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba(123, 63, 242, 0.45);
+}
+
+.tokuen-legal-heading {
+    margin-bottom: 24px;
+}
+
+.tokuen-legal-heading span {
+    color: var(--tokuen-violet);
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.tokuen-legal-heading h2 {
+    margin: 8px 0 8px;
+    color: var(--tokuen-ink);
+    font-size: 2.25rem;
+    font-weight: 800;
+}
+
+.tokuen-legal-heading p {
+    max-width: 680px;
+    margin: 0;
+    color: var(--tokuen-muted);
+    line-height: 1.65;
+}
+
+.tokuen-legal-content {
+    display: grid;
+    gap: 18px;
+}
+
+.tokuen-legal-content section {
+    padding: 20px;
+    border: 1px solid rgba(218, 224, 246, 0.9);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.54);
+}
+
+.tokuen-legal-content h3 {
+    margin: 0 0 10px;
+    color: var(--tokuen-ink);
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.tokuen-legal-content p {
+    margin: 0;
+    color: #3f4778;
+    line-height: 1.75;
+}
+
+.tokuen-legal-content p + p {
+    margin-top: 12px;
+}
+
+.tokuen-legal-content ul {
+    display: grid;
+    gap: 8px;
+    margin: 12px 0 0;
+    padding-left: 20px;
+    color: #3f4778;
+    line-height: 1.65;
+}
+
+.tokuen-legal-content li::marker {
+    color: var(--tokuen-violet);
+}
+
+@media (max-width: 960px) {
+    .tokuen-legal-page {
+        height: auto;
+        min-height: 100vh;
+        overflow: auto;
+        padding: 20px;
+    }
+
+    .tokuen-legal-shell {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .tokuen-legal-hero {
+        gap: 30px;
+        min-height: auto;
+        padding: 26px;
+    }
+}
+
+@media (max-width: 960px) {
+    html:has(.tokuen-legal-page),
+    body:has(.tokuen-legal-page),
+    .app-body:has(.tokuen-legal-page) {
+        height: auto;
+        min-height: 100%;
+        overflow: auto;
+        background:
+            radial-gradient(circle at 82% 16%, rgba(181, 139, 255, 0.6), transparent 30%),
+            radial-gradient(circle at 18% 88%, rgba(28, 95, 255, 0.78), transparent 36%),
+            linear-gradient(135deg, #05093f 0%, #101f82 46%, #7437ee 100%);
+    }
+}
+
+@media (max-width: 640px) {
+    .tokuen-legal-page {
+        padding: 0 10px 10px;
+    }
+
+    .tokuen-legal-shell {
+        gap: 14px;
+    }
+
+    .tokuen-legal-hero {
+        gap: 18px;
+        padding: 24px;
+    }
+
+    .tokuen-legal-hero .tokuen-brand-mark {
+        width: 40px;
+        height: 40px;
+        border-radius: 11px;
+    }
+
+    .tokuen-legal-hero .tokuen-brand {
+        gap: 12px;
+        font-size: 1rem;
+    }
+
+    .tokuen-legal-hero .tokuen-kicker {
+        margin-bottom: 10px;
+        font-size: 0.74rem;
+    }
+
+    .tokuen-legal-hero h1 {
+        margin: 0 0 12px;
+        font-size: 2.45rem;
+        line-height: 1;
+    }
+
+    .tokuen-legal-hero p {
+        font-size: 0.94rem;
+        line-height: 1.55;
+    }
+
+    .tokuen-legal-nav {
+        gap: 10px;
+    }
+
+    .tokuen-legal-nav a {
+        padding: 12px 14px;
+    }
+
+    .tokuen-legal-card {
+        padding: 30px 18px 18px;
+    }
+
+    .tokuen-legal-heading h2 {
+        font-size: 1.65rem;
+        line-height: 1.15;
+    }
+
+    .tokuen-legal-heading {
+        margin-bottom: 18px;
+    }
+
+    .tokuen-legal-heading p,
+    .tokuen-legal-content p {
+        font-size: 0.92rem;
+        line-height: 1.6;
+    }
+
+    .tokuen-legal-content {
+        gap: 12px;
+    }
+
+    .tokuen-legal-content section {
+        padding: 16px;
+    }
+}
+
+.tokuen-client-dashboard {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    color: var(--tokuen-ink);
+    background:
+        radial-gradient(circle at 84% 8%, rgba(123, 63, 242, 0.12), transparent 28%),
+        linear-gradient(135deg, #f8f9ff 0%, #ffffff 48%, #f1f4ff 100%);
+    transition: grid-template-columns 220ms ease;
+}
+
+.tokuen-client-dashboard.is-sidebar-collapsed {
+    grid-template-columns: 86px minmax(0, 1fr);
+}
+
+.tokuen-client-sidebar {
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    padding: 34px 28px;
+    color: #ffffff;
+    background:
+        radial-gradient(circle at 90% 78%, rgba(128, 91, 255, 0.82), transparent 32%),
+        linear-gradient(180deg, #070b4d 0%, #0b1574 58%, #512ee6 100%);
+}
+
+.tokuen-client-sidebar::after {
+    content: "";
+    position: absolute;
+    right: -110px;
+    bottom: -160px;
+    width: 360px;
+    height: 360px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+}
+
+.tokuen-client-sidebar > * {
+    position: relative;
+    z-index: 1;
+}
+
+.tokuen-client-sidebar-top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.tokuen-client-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 800;
+    min-width: 0;
+}
+
+.tokuen-client-brand-text {
+    white-space: nowrap;
+    transition: opacity 160ms ease, width 160ms ease;
+}
+
+.tokuen-sidebar-toggle {
+    appearance: none;
+    display: inline-flex;
+    flex: 0 0 auto;
+    width: 42px;
+    height: 64px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    color: #6f7480;
+    cursor: pointer;
+    transition: color 160ms ease;
+}
+
+.tokuen-sidebar-toggle span {
+    display: block;
+    width: 14px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transition: width 160ms ease, background 160ms ease;
+}
+
+.tokuen-sidebar-toggle:hover,
+.tokuen-sidebar-toggle:focus {
+    color: var(--tokuen-violet);
+    background: transparent;
+    outline: 0;
+}
+
+.tokuen-client-dashboard.is-sidebar-collapsed .tokuen-sidebar-toggle span:nth-child(1) {
+    width: 14px;
+}
+
+.tokuen-client-dashboard.is-sidebar-collapsed .tokuen-sidebar-toggle span:nth-child(2) {
+    width: 14px;
+}
+
+.tokuen-client-dashboard.is-sidebar-collapsed .tokuen-sidebar-toggle span:nth-child(3) {
+    width: 14px;
+}
+
+.tokuen-client-nav {
+    display: grid;
+    gap: 8px;
+    margin-top: 42px;
+}
+
+.tokuen-client-nav a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 52px;
+    padding: 0 16px;
+    border-radius: 10px;
+    color: #e6eaff;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.tokuen-client-nav a.active,
+.tokuen-client-nav a:hover,
+.tokuen-client-nav a:focus-visible {
+    color: #ffffff;
+    background: linear-gradient(135deg, rgba(49, 88, 245, 0.9), rgba(123, 63, 242, 0.92));
+    box-shadow: 0 18px 42px rgba(47, 44, 160, 0.34);
+    outline: 0;
+}
+
+.tokuen-client-nav span {
+    display: grid;
+    width: 24px;
+    place-items: center;
+    font-size: 1.05rem;
+}
+
+.tokuen-client-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.16);
+    color: #ffffff;
+    text-decoration: none;
+    transition: background 160ms ease, border-color 160ms ease;
+}
+
+.tokuen-client-profile:hover,
+.tokuen-client-profile.active {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.tokuen-client-avatar,
+.tokuen-stat-icon {
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #ffffff;
+    background: linear-gradient(135deg, #3158f5, #7b3ff2);
+}
+
+.tokuen-client-avatar {
+    width: 48px;
+    height: 48px;
+    font-weight: 800;
+}
+
+.tokuen-client-profile strong,
+.tokuen-client-profile small {
+    display: block;
+}
+
+.tokuen-client-profile small {
+    margin-top: 2px;
+    color: #dfe4ff;
+}
+
+.tokuen-client-dashboard.is-sidebar-collapsed .tokuen-client-sidebar {
+    padding-inline: 18px;
+}
+
+.tokuen-client-dashboard.is-sidebar-collapsed .tokuen-client-brand {
+    justify-content: center;
+    gap: 0;
+}
+
+.tokuen-client-dashboard.is-sidebar-collapsed .tokuen-client-brand-text,
+.tokuen-client-dashboard.is-sidebar-collapsed .tokuen-client-profile div {
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    font-size: 0;
+}
+
+.tokuen-client-dashboard.is-sidebar-collapsed .tokuen-client-nav a {
+    justify-content: center;
+    gap: 0;
+    padding-inline: 0;
+    font-size: 0;
+}
+
+.tokuen-client-dashboard.is-sidebar-collapsed .tokuen-client-nav span {
+    font-size: 0.78rem;
+}
+
+.tokuen-client-dashboard.is-sidebar-collapsed .tokuen-client-profile {
+    justify-content: center;
+    padding: 12px;
+}
+
+.tokuen-client-main {
+    overflow: auto;
+    height: 100vh;
+    padding: 0 44px 44px;
+    scrollbar-gutter: stable;
+}
+
+.tokuen-client-topnav {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    min-height: 64px;
+    margin: 0 -44px 26px -44px;
+    padding: 0 44px 0 20px;
+    border-bottom: 1px solid rgba(218, 224, 246, 0.9);
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(18px);
+}
+
+.tokuen-client-topnav nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.tokuen-client-topnav a {
+    color: #69709a;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.tokuen-client-topnav a:hover {
+    color: var(--tokuen-violet);
+}
+
+.tokuen-client-topnav form {
+    display: flex;
+    align-items: center;
+}
+
+.tokuen-client-topnav button {
+    color: #69709a;
+    font-weight: 700;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 160ms ease;
+}
+
+.tokuen-client-topnav button:hover {
+    color: var(--tokuen-violet);
+}
+
+.tokuen-client-topnav-actions {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.tokuen-client-topnav .tokuen-logout-btn {
+    color: #ffffff;
+    background: linear-gradient(135deg, #3158f5, #7b3ff2);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 16px 34px rgba(86, 75, 237, 0.24);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+    border: none;
+    cursor: pointer;
+}
+
+.tokuen-client-topnav .tokuen-logout-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 18px 40px rgba(86, 75, 237, 0.32);
+}
+
+.tokuen-client-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.tokuen-client-header,
+.tokuen-client-stats article,
+.tokuen-client-panel {
+    scroll-margin-top: 88px;
+}
+
+.tokuen-client-header h1 {
+    margin: 0;
+    color: var(--tokuen-ink);
+    font-size: clamp(1.8rem, 3vw, 2.45rem);
+    font-weight: 800;
+}
+
+.tokuen-client-header p {
+    margin: 8px 0 0;
+    color: var(--tokuen-muted);
+    font-size: 1rem;
+}
+
+.tokuen-client-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.tokuen-client-actions > button,
+.tokuen-logout-btn {
+    min-height: 46px;
+    padding: 0 18px;
+    border: 1px solid #dfe4f6;
+    border-radius: 10px;
+    color: var(--tokuen-ink);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 12px 28px rgba(41, 45, 99, 0.08);
+    font-weight: 800;
+}
+
+.tokuen-logout-btn {
+    border: 0;
+    color: #ffffff;
+    background: linear-gradient(135deg, #3158f5, #7b3ff2);
+    transition: background 160ms ease;
+}
+
+.tokuen-logout-btn:hover {
+    background: linear-gradient(135deg, #2448df, #6d33df);
+}
+
+.tokuen-client-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.tokuen-client-stats article,
+.tokuen-client-panel {
+    border: 1px solid rgba(218, 224, 246, 0.8);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 22px 60px rgba(41, 45, 99, 0.09);
+    backdrop-filter: blur(18px);
+}
+
+.tokuen-client-stats article {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 142px;
+    padding: 24px;
+}
+
+.tokuen-stat-icon {
+    flex: 0 0 auto;
+    width: 58px;
+    height: 58px;
+    box-shadow: 0 18px 36px rgba(86, 75, 237, 0.28);
+    font-size: 0.95rem;
+    font-weight: 800;
+}
+
+.tokuen-stat-icon.violet {
+    background: linear-gradient(135deg, #8f65ff, #bd9cff);
+}
+
+.tokuen-stat-icon.blue {
+    background: linear-gradient(135deg, #3158f5, #3aa5ff);
+}
+
+.tokuen-client-stats p {
+    margin: 0 0 6px;
+    color: var(--tokuen-muted);
+    font-size: 0.88rem;
+}
+
+.tokuen-client-stats strong {
+    display: block;
+    color: var(--tokuen-ink);
+    font-size: 1.55rem;
+    font-weight: 800;
+}
+
+.tokuen-client-stats small {
+    display: block;
+    margin-top: 6px;
+    color: #0b9b58;
+    font-weight: 700;
+}
+
+.tokuen-client-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.9fr);
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.tokuen-client-grid.bottom {
+    grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+}
+
+.tokuen-client-panel {
+    padding: 24px;
+}
+
+.tokuen-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.tokuen-panel-header h2 {
+    margin: 0;
+    color: var(--tokuen-ink);
+    font-size: 1.18rem;
+    font-weight: 800;
+}
+
+.tokuen-panel-header h3 {
+    margin: 0;
+    color: var(--tokuen-ink);
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.tokuen-panel-header p {
+    margin: 6px 0 0;
+    color: var(--tokuen-muted);
+    font-size: 0.94rem;
+}
+
+.tokuen-panel-header.compact {
+    margin-bottom: 14px;
+}
+
+.tokuen-panel-header span,
+.tokuen-panel-header a {
+    color: var(--tokuen-violet);
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.tokuen-chart-area {
+    position: relative;
+    overflow: hidden;
+    height: 260px;
+    border-radius: 12px;
+    background:
+        linear-gradient(rgba(9, 13, 63, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(9, 13, 63, 0.04) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(123, 63, 242, 0.1), rgba(49, 88, 245, 0.03));
+    background-size: 100% 52px, 80px 100%, auto;
+}
+
+.tokuen-chart-path {
+    position: absolute;
+    inset: 72px 42px 76px;
+    border-bottom: 5px solid #5966ff;
+    border-left: 5px solid transparent;
+    border-radius: 0 0 0 18px;
+    transform: skewY(-12deg);
+    box-shadow: 0 18px 34px rgba(89, 102, 255, 0.18);
+}
+
+.tokuen-chart-area::after {
+    content: "";
+    position: absolute;
+    inset: 122px 42px 42px;
+    background: linear-gradient(180deg, rgba(123, 63, 242, 0.18), transparent);
+    clip-path: polygon(0 54%, 22% 42%, 44% 26%, 68% 34%, 100% 0, 100% 100%, 0 100%);
+}
+
+.tokuen-chart-point {
+    position: absolute;
+    z-index: 1;
+    width: 16px;
+    height: 16px;
+    border: 4px solid #ffffff;
+    border-radius: 50%;
+    background: #5966ff;
+    box-shadow: 0 8px 20px rgba(89, 102, 255, 0.35);
+}
+
+.tokuen-chart-point.p1 { left: 17%; top: 59%; }
+.tokuen-chart-point.p2 { left: 39%; top: 43%; }
+.tokuen-chart-point.p3 { left: 62%; top: 49%; }
+.tokuen-chart-point.p4 { left: 86%; top: 25%; }
+
+.tokuen-chart-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    color: var(--tokuen-muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.tokuen-donut-wrap {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 24px;
+    align-items: center;
+    min-height: 260px;
+}
+
+.tokuen-donut {
+    width: 180px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: conic-gradient(#3158f5 0 68%, #7b3ff2 68% 100%);
+    box-shadow: 0 24px 54px rgba(86, 75, 237, 0.25);
+    position: relative;
+}
+
+.tokuen-donut::after {
+    content: "";
+    position: absolute;
+    inset: 42px;
+    border-radius: 50%;
+    background: #ffffff;
+}
+
+.tokuen-status-list,
+.tokuen-insight-list,
+.tokuen-client-table {
+    display: grid;
+    gap: 14px;
+}
+
+.tokuen-status-list p,
+.tokuen-insight-list p,
+.tokuen-client-table div {
+    margin: 0;
+    padding: 14px;
+    border-radius: 10px;
+    background: rgba(246, 248, 255, 0.86);
+}
+
+.tokuen-status-list p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--tokuen-muted);
+    font-weight: 700;
+}
+
+.tokuen-status-list span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #3158f5;
+}
+
+.tokuen-status-list p:nth-child(2) span {
+    background: #7b3ff2;
+}
+
+.tokuen-status-list p:nth-child(3) span {
+    background: #8fcfff;
+}
+
+.tokuen-status-list strong {
+    color: var(--tokuen-ink);
+}
+
+.tokuen-client-table div {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 12px;
+}
+
+.tokuen-client-table span {
+    color: var(--tokuen-ink);
+    font-weight: 800;
+}
+
+.tokuen-client-table strong {
+    color: var(--tokuen-violet);
+}
+
+.tokuen-client-table small {
+    color: var(--tokuen-muted);
+}
+
+.tokuen-insight-list p {
+    color: var(--tokuen-ink);
+    font-weight: 700;
+}
+
+.tokuen-loans-section {
+    margin-top: 18px;
+}
+
+.tokuen-loans-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+    gap: 18px;
+}
+
+.tokuen-loan-feature,
+.tokuen-loan-card,
+.tokuen-loan-side article {
+    border: 1px solid rgba(218, 224, 246, 0.85);
+    border-radius: 12px;
+    background: rgba(246, 248, 255, 0.82);
+}
+
+.tokuen-loan-feature {
+    overflow: hidden;
+    padding: 24px;
+    background:
+        radial-gradient(circle at 86% 16%, rgba(123, 63, 242, 0.18), transparent 30%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(242, 245, 255, 0.88));
+}
+
+.tokuen-loan-feature-top {
+    display: grid;
+    gap: 7px;
+}
+
+.tokuen-loan-badge,
+.tokuen-mini-label {
+    width: max-content;
+    border-radius: 999px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #3158f5, #7b3ff2);
+    font-size: 0.76rem;
+    font-weight: 800;
+}
+
+.tokuen-loan-badge {
+    padding: 7px 12px;
+}
+
+.tokuen-mini-label {
+    padding: 6px 10px;
+}
+
+.tokuen-loan-feature-top strong {
+    color: var(--tokuen-ink);
+    font-size: 1.35rem;
+    font-weight: 800;
+}
+
+.tokuen-loan-feature-top small,
+.tokuen-loan-amount span,
+.tokuen-loan-meta span,
+.tokuen-loan-side small,
+.tokuen-loan-list small,
+.tokuen-offer-list span {
+    color: var(--tokuen-muted);
+}
+
+.tokuen-loan-amount {
+    margin-top: 28px;
+}
+
+.tokuen-loan-amount strong {
+    display: block;
+    margin-top: 5px;
+    color: var(--tokuen-ink);
+    font-size: clamp(1.85rem, 3vw, 2.6rem);
+    font-weight: 800;
+}
+
+.tokuen-loan-progress {
+    overflow: hidden;
+    height: 10px;
+    margin-top: 20px;
+    border-radius: 999px;
+    background: rgba(218, 224, 246, 0.9);
+}
+
+.tokuen-loan-progress span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #3158f5, #7b3ff2);
+}
+
+.tokuen-loan-meta {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.tokuen-loan-meta p,
+.tokuen-loan-list p,
+.tokuen-offer-list p {
+    margin: 0;
+}
+
+.tokuen-loan-meta p {
+    display: grid;
+    gap: 4px;
+    padding: 14px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.78);
+}
+
+.tokuen-loan-meta strong,
+.tokuen-loan-side strong,
+.tokuen-loan-list strong,
+.tokuen-offer-list strong {
+    color: var(--tokuen-ink);
+    font-weight: 800;
+}
+
+.tokuen-loan-side,
+.tokuen-loan-list,
+.tokuen-loan-actions,
+.tokuen-offer-list {
+    display: grid;
+    gap: 12px;
+}
+
+.tokuen-loan-side article {
+    display: grid;
+    gap: 7px;
+    padding: 18px;
+}
+
+.tokuen-loan-side strong {
+    font-size: 1.35rem;
+}
+
+.tokuen-loans-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.tokuen-loan-card {
+    padding: 20px;
+}
+
+.tokuen-loan-list p {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 12px;
+    padding: 13px 14px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.75);
+}
+
+.tokuen-loan-list small {
+    grid-column: 1 / -1;
+    font-weight: 700;
+}
+
+.tokuen-loan-actions button {
+    min-height: 46px;
+    border: 1px solid rgba(218, 224, 246, 0.95);
+    border-radius: 10px;
+    color: var(--tokuen-ink);
+    background: rgba(255, 255, 255, 0.8);
+    font-weight: 800;
+}
+
+.tokuen-loan-actions button:hover,
+.tokuen-loan-actions button:focus {
+    color: #ffffff;
+    background: linear-gradient(135deg, #3158f5, #7b3ff2);
+}
+
+.tokuen-offer-list p {
+    display: grid;
+    gap: 5px;
+    padding: 14px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.75);
+}
+
+.tokuen-payment-hero,
+.tokuen-payment-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.tokuen-payment-grid.bottom {
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+}
+
+.tokuen-payment-due {
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 84% 18%, rgba(123, 63, 242, 0.15), transparent 30%),
+        rgba(255, 255, 255, 0.92);
+}
+
+.tokuen-payment-amount {
+    margin-top: 18px;
+}
+
+.tokuen-payment-amount span,
+.tokuen-payment-breakdown span,
+.tokuen-method-list span,
+.tokuen-payment-help span {
+    color: var(--tokuen-muted);
+}
+
+.tokuen-payment-amount strong {
+    display: block;
+    margin-top: 6px;
+    color: var(--tokuen-ink);
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 800;
+}
+
+.tokuen-payment-breakdown {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.tokuen-payment-breakdown p,
+.tokuen-payment-help p {
+    margin: 0;
+    padding: 14px;
+    border-radius: 10px;
+    background: rgba(246, 248, 255, 0.9);
+}
+
+.tokuen-payment-breakdown p,
+.tokuen-payment-help p {
+    display: grid;
+    gap: 5px;
+}
+
+.tokuen-payment-breakdown strong,
+.tokuen-payment-help strong {
+    color: var(--tokuen-ink);
+    font-weight: 800;
+}
+
+.tokuen-payment-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.tokuen-payment-actions button,
+.tokuen-method-list button {
+    min-height: 50px;
+    border: 1px solid rgba(218, 224, 246, 0.95);
+    border-radius: 10px;
+    font-weight: 800;
+}
+
+.tokuen-payment-actions button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+    padding: 0 22px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.tokuen-payment-actions button:first-child {
+    color: #ffffff;
+    border: 0;
+    background: linear-gradient(135deg, #3158f5, #7b3ff2);
+    box-shadow: 0 18px 38px rgba(86, 75, 237, 0.24);
+}
+
+.tokuen-payment-actions button:last-child,
+.tokuen-method-list button {
+    color: var(--tokuen-ink);
+    background: rgba(246, 248, 255, 0.88);
+}
+
+.tokuen-payment-methods {
+    align-self: stretch;
+}
+
+.tokuen-method-list,
+.tokuen-payment-help {
+    display: grid;
+    gap: 12px;
+}
+
+.tokuen-method-list button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 16px;
+    text-align: left;
+}
+
+.tokuen-method-list button:hover,
+.tokuen-method-list button:focus {
+    color: #ffffff;
+    border-color: transparent;
+    background: linear-gradient(135deg, #3158f5, #7b3ff2);
+}
+
+.tokuen-method-list button:hover span,
+.tokuen-method-list button:focus span {
+    color: #eef1ff;
+}
+
+.tokuen-payment-table {
+    display: grid;
+    gap: 10px;
+}
+
+.tokuen-payment-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 16px;
+    align-items: center;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: rgba(246, 248, 255, 0.86);
+}
+
+.tokuen-payment-row.head {
+    color: var(--tokuen-muted);
+    background: transparent;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.tokuen-payment-row strong {
+    color: var(--tokuen-ink);
+}
+
+.tokuen-payment-row em {
+    min-width: 92px;
+    padding: 7px 10px;
+    border-radius: 999px;
+    color: var(--tokuen-violet);
+    background: rgba(123, 63, 242, 0.1);
+    font-size: 0.82rem;
+    font-style: normal;
+    font-weight: 800;
+    text-align: center;
+}
+
+.tokuen-application-hero,
+.tokuen-application-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.tokuen-application-grid.bottom {
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+}
+
+.tokuen-application-start {
+    background:
+        radial-gradient(circle at 88% 14%, rgba(123, 63, 242, 0.14), transparent 32%),
+        rgba(255, 255, 255, 0.92);
+}
+
+.tokuen-application-options,
+.tokuen-application-actions,
+.tokuen-application-timeline,
+.tokuen-requirement-list,
+.tokuen-application-summary,
+.tokuen-application-help {
+    display: grid;
+    gap: 12px;
+}
+
+.tokuen-application-options {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.tokuen-application-options button,
+.tokuen-application-actions button {
+    border: 1px solid rgba(218, 224, 246, 0.95);
+    border-radius: 10px;
+    font-weight: 800;
+}
+
+.tokuen-application-options button {
+    display: grid;
+    gap: 8px;
+    min-height: 118px;
+    padding: 18px;
+    color: var(--tokuen-ink);
+    background: rgba(246, 248, 255, 0.88);
+    text-align: left;
+}
+
+.tokuen-application-options button span,
+.tokuen-application-timeline span,
+.tokuen-requirement-list span,
+.tokuen-application-summary span,
+.tokuen-application-help span {
+    color: var(--tokuen-muted);
+}
+
+.tokuen-application-options button:hover,
+.tokuen-application-options button:focus {
+    color: #ffffff;
+    border-color: transparent;
+    background: linear-gradient(135deg, #3158f5, #7b3ff2);
+}
+
+.tokuen-application-options button:hover span,
+.tokuen-application-options button:focus span {
+    color: #eef1ff;
+}
+
+.tokuen-application-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 20px;
+}
+
+.tokuen-application-actions button {
+    min-height: 52px;
+}
+
+.tokuen-application-actions button:first-child {
+    color: #ffffff;
+    border: 0;
+    background: linear-gradient(135deg, #3158f5, #7b3ff2);
+    box-shadow: 0 18px 38px rgba(86, 75, 237, 0.24);
+}
+
+.tokuen-application-actions button:last-child {
+    color: var(--tokuen-ink);
+    background: rgba(246, 248, 255, 0.88);
+}
+
+.tokuen-application-timeline p,
+.tokuen-requirement-list p,
+.tokuen-application-summary p,
+.tokuen-application-help p {
+    margin: 0;
+    padding: 14px;
+    border-radius: 10px;
+    background: rgba(246, 248, 255, 0.86);
+}
+
+.tokuen-application-timeline p,
+.tokuen-requirement-list p,
+.tokuen-application-summary p,
+.tokuen-application-help p {
+    display: grid;
+    gap: 5px;
+}
+
+.tokuen-application-timeline p {
+    position: relative;
+    padding-left: 42px;
+}
+
+.tokuen-application-timeline p::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 16px;
+    width: 12px;
+    height: 12px;
+    border: 3px solid rgba(123, 63, 242, 0.22);
+    border-radius: 50%;
+    background: #ffffff;
+}
+
+.tokuen-application-timeline p.done::before,
+.tokuen-application-timeline p.active::before {
+    border-color: #3158f5;
+    background: #3158f5;
+}
+
+.tokuen-application-timeline p.active {
+    color: var(--tokuen-ink);
+    background: rgba(123, 63, 242, 0.1);
+}
+
+.tokuen-requirement-list p.complete {
+    border: 1px solid rgba(11, 155, 88, 0.16);
+    background: rgba(11, 155, 88, 0.06);
+}
+
+.tokuen-application-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.tokuen-application-summary strong,
+.tokuen-application-timeline strong,
+.tokuen-requirement-list strong,
+.tokuen-application-help strong {
+    color: var(--tokuen-ink);
+    font-weight: 800;
+}
+
+.tokuen-transaction-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.tokuen-transaction-stats article {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 136px;
+    padding: 24px;
+    border: 1px solid rgba(218, 224, 246, 0.8);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 22px 60px rgba(41, 45, 99, 0.09);
+}
+
+.tokuen-transaction-stats p {
+    margin: 0 0 6px;
+    color: var(--tokuen-muted);
+    font-size: 0.88rem;
+}
+
+.tokuen-transaction-stats strong {
+    display: block;
+    color: var(--tokuen-ink);
+    font-size: 1.55rem;
+    font-weight: 800;
+}
+
+.tokuen-transaction-stats small {
+    display: block;
+    margin-top: 6px;
+    color: #0b9b58;
+    font-weight: 700;
+}
+
+.tokuen-transaction-panel,
+.tokuen-transaction-grid {
+    margin-top: 18px;
+}
+
+.tokuen-transaction-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.tokuen-transaction-tools button {
+    min-height: 40px;
+    padding: 0 16px;
+    border: 1px solid rgba(218, 224, 246, 0.95);
+    border-radius: 999px;
+    color: var(--tokuen-muted);
+    background: rgba(246, 248, 255, 0.88);
+    font-weight: 800;
+}
+
+.tokuen-transaction-tools button.active,
+.tokuen-transaction-tools button:hover,
+.tokuen-transaction-tools button:focus {
+    color: #ffffff;
+    border-color: transparent;
+    background: linear-gradient(135deg, #3158f5, #7b3ff2);
+}
+
+.tokuen-transaction-table {
+    display: grid;
+    gap: 10px;
+}
+
+.tokuen-transaction-row {
+    display: grid;
+    grid-template-columns: minmax(130px, 0.75fr) minmax(180px, 1.15fr) minmax(160px, 1fr) auto auto;
+    gap: 14px;
+    align-items: center;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: rgba(246, 248, 255, 0.86);
+}
+
+.tokuen-transaction-row.head {
+    color: var(--tokuen-muted);
+    background: transparent;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.tokuen-transaction-row strong,
+.tokuen-transaction-row b,
+.tokuen-transaction-help strong {
+    color: var(--tokuen-ink);
+    font-weight: 800;
+}
+
+.tokuen-transaction-row span {
+    color: var(--tokuen-muted);
+}
+
+.tokuen-transaction-row em {
+    min-width: 82px;
+    padding: 7px 10px;
+    border-radius: 999px;
+    color: #0b9b58;
+    background: rgba(11, 155, 88, 0.1);
+    font-size: 0.82rem;
+    font-style: normal;
+    font-weight: 800;
+    text-align: center;
+}
+
+.tokuen-transaction-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.8fr);
+    gap: 18px;
+}
+
+.tokuen-transaction-actions,
+.tokuen-transaction-help {
+    display: grid;
+    gap: 12px;
+}
+
+.tokuen-transaction-actions button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 0 18px;
+    border: 1px solid rgba(218, 224, 246, 0.95);
+    border-radius: 10px;
+    color: var(--tokuen-ink);
+    background: rgba(246, 248, 255, 0.88);
+    font-weight: 800;
+    text-align: center;
+}
+
+.tokuen-transaction-actions button:hover,
+.tokuen-transaction-actions button:focus {
+    color: #ffffff;
+    border-color: transparent;
+    background: linear-gradient(135deg, #3158f5, #7b3ff2);
+}
+
+.tokuen-transaction-help p {
+    display: grid;
+    gap: 5px;
+    margin: 0;
+    padding: 14px;
+    border-radius: 10px;
+    background: rgba(246, 248, 255, 0.86);
+}
+
+.tokuen-transaction-help span {
+    color: var(--tokuen-muted);
+}
+
+.tokuen-settings-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+    gap: 18px;
+    margin-top: 24px;
+    align-items: start;
+}
+
+.tokuen-settings-grid.bottom {
+    margin-top: 18px;
+}
+
+.tokuen-settings-support-wide {
+    grid-column: 1 / -1;
+}
+
+.tokuen-settings-profile {
+    background:
+        radial-gradient(circle at 88% 14%, rgba(123, 63, 242, 0.12), transparent 30%),
+        rgba(255, 255, 255, 0.92);
+}
+
+.tokuen-settings-identity {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding: 16px;
+    border-radius: 12px;
+    background: rgba(246, 248, 255, 0.88);
+}
+
+.tokuen-settings-identity strong,
+.tokuen-settings-list strong,
+.tokuen-device-list strong,
+.tokuen-settings-help strong {
+    display: block;
+    color: var(--tokuen-ink);
+    font-weight: 800;
+}
+
+.tokuen-settings-identity span,
+.tokuen-settings-list span,
+.tokuen-device-list span,
+.tokuen-settings-help span {
+    color: var(--tokuen-muted);
+}
+
+.tokuen-settings-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.tokuen-settings-fields label {
+    display: grid;
+    gap: 7px;
+    color: #343d72;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.tokuen-settings-fields input {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 14px;
+    border: 1px solid #dfe4f6;
+    border-radius: 10px;
+    color: var(--tokuen-ink);
+    background: rgba(249, 250, 255, 0.92);
+    font: inherit;
+    font-weight: 700;
+}
+
+.tokuen-settings-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.tokuen-settings-actions button,
+.tokuen-settings-list button,
+.tokuen-device-list button {
+    min-height: 42px;
+    padding: 0 16px;
+    border: 1px solid rgba(218, 224, 246, 0.95);
+    border-radius: 10px;
+    color: var(--tokuen-ink);
+    background: rgba(246, 248, 255, 0.88);
+    font-weight: 800;
+}
+
+.tokuen-settings-actions button:first-child {
+    color: #ffffff;
+    border: 0;
+    background: linear-gradient(135deg, #3158f5, #7b3ff2);
+    box-shadow: 0 18px 38px rgba(86, 75, 237, 0.24);
+}
+
+.tokuen-settings-list,
+.tokuen-toggle-list,
+.tokuen-device-list,
+.tokuen-settings-help {
+    display: grid;
+    gap: 12px;
+}
+
+.tokuen-settings-help {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.tokuen-settings-help p {
+    min-height: 96px;
+}
+
+.tokuen-settings-list p,
+.tokuen-device-list p,
+.tokuen-settings-help p {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 12px;
+    align-items: center;
+    margin: 0;
+    padding: 14px;
+    border-radius: 10px;
+    background: rgba(246, 248, 255, 0.86);
+}
+
+.tokuen-settings-list span,
+.tokuen-device-list span,
+.tokuen-settings-help span {
+    grid-column: 1;
+}
+
+.tokuen-settings-list button,
+.tokuen-device-list button {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+}
+
+.tokuen-toggle-list label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    min-height: 54px;
+    padding: 14px;
+    border-radius: 10px;
+    color: var(--tokuen-ink);
+    background: rgba(246, 248, 255, 0.86);
+    font-weight: 800;
+}
+
+.tokuen-toggle-list input {
+    appearance: none;
+    position: relative;
+    width: 48px;
+    height: 28px;
+    border-radius: 999px;
+    background: #dfe4f6;
+    transition: background 160ms ease;
+}
+
+.tokuen-toggle-list input::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(41, 45, 99, 0.2);
+    transition: transform 160ms ease;
+}
+
+.tokuen-toggle-list input:checked {
+    background: linear-gradient(135deg, #3158f5, #7b3ff2);
+}
+
+.tokuen-toggle-list input:checked::after {
+    transform: translateX(20px);
+}
+
+@media (max-width: 1180px) {
+    .tokuen-client-dashboard {
+        grid-template-columns: 240px minmax(0, 1fr);
+    }
+
+    .tokuen-client-main {
+        padding: 0 30px 30px;
+    }
+
+    .tokuen-client-topnav {
+        margin-inline: -30px;
+        padding-inline: 30px;
+    }
+
+    .tokuen-client-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tokuen-client-grid,
+    .tokuen-client-grid.bottom {
+        grid-template-columns: 1fr;
+    }
+
+    .tokuen-loans-layout,
+    .tokuen-loans-grid,
+    .tokuen-payment-hero,
+    .tokuen-payment-grid,
+    .tokuen-payment-grid.bottom,
+    .tokuen-application-hero,
+    .tokuen-application-grid,
+    .tokuen-application-grid.bottom,
+    .tokuen-transaction-stats,
+    .tokuen-transaction-grid,
+    .tokuen-settings-grid,
+    .tokuen-settings-grid.bottom {
+        grid-template-columns: 1fr;
+    }
+
+    .tokuen-application-options {
+        grid-template-columns: 1fr;
+    }
+
+    .tokuen-loan-meta {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .tokuen-client-dashboard {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .tokuen-client-dashboard.is-sidebar-collapsed {
+        display: flex;
+    }
+
+    .tokuen-client-dashboard.is-sidebar-collapsed::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 900;
+        opacity: 1;
+        transition: opacity 300ms ease;
+        pointer-events: auto;
+    }
+
+    .tokuen-client-dashboard::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 900;
+        opacity: 0;
+        transition: opacity 300ms ease;
+        pointer-events: none;
+    }
+
+    .tokuen-client-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 280px;
+        height: 100vh;
+        transform: translateX(-100%);
+        transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+        padding: 0;
+        background: linear-gradient(135deg, #05093f 0%, #1f1f7f 100%);
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .tokuen-client-dashboard.is-sidebar-collapsed .tokuen-client-sidebar {
+        transform: translateX(0);
+        padding-inline: 0;
+    }
+
+    .tokuen-client-sidebar-top {
+        padding: 20px 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        flex-shrink: 0;
+        transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .tokuen-client-brand {
+        gap: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .tokuen-client-brand-text {
+        width: auto;
+        opacity: 1;
+        overflow: visible;
+        font-size: 1.1rem;
+        color: #ffffff;
+        transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .tokuen-client-brand-mark {
+        width: 40px;
+        height: 40px;
+        transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .tokuen-client-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        margin-top: 0;
+        flex: 1;
+        overflow-y: auto;
+        padding: 8px 0;
+        transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .tokuen-client-nav a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        justify-content: flex-start;
+        padding: 12px 16px;
+        color: #ffffff;
+        font-size: 0.95rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: background 160ms ease;
+        border-left: 3px solid transparent;
+    }
+
+    .tokuen-client-dashboard.is-sidebar-collapsed .tokuen-client-brand {
+        justify-content: flex-start;
+        gap: 12px;
+    }
+
+    .tokuen-client-dashboard.is-sidebar-collapsed .tokuen-client-brand-text,
+    .tokuen-client-dashboard.is-sidebar-collapsed .tokuen-client-profile div {
+        width: auto;
+        opacity: 1;
+        overflow: visible;
+        font-size: inherit;
+    }
+
+    .tokuen-client-dashboard.is-sidebar-collapsed .tokuen-client-nav a {
+        justify-content: flex-start;
+        gap: 12px;
+        padding: 12px 16px;
+        font-size: 0.95rem;
+    }
+
+    .tokuen-client-nav a.active,
+    .tokuen-client-nav a:focus-visible {
+        color: #ffffff;
+        background: linear-gradient(135deg, rgba(49, 88, 245, 0.86), rgba(123, 63, 242, 0.88));
+        border-left-color: #76a9ff;
+    }
+
+    .tokuen-client-nav a:hover {
+        color: #ffffff;
+        background: transparent;
+        border-left-color: transparent;
+        box-shadow: none;
+    }
+
+    .tokuen-client-nav a.active,
+    .tokuen-client-nav a.active:hover {
+        color: #ffffff;
+        background: linear-gradient(135deg, rgba(49, 88, 245, 0.86), rgba(123, 63, 242, 0.88));
+        border-left-color: #76a9ff;
+    }
+
+    .tokuen-client-nav a span {
+        min-width: 38px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .tokuen-client-dashboard.is-sidebar-collapsed .tokuen-client-nav span {
+        font-size: 0.85rem;
+    }
+
+    .tokuen-client-profile {
+        margin-top: auto;
+        padding: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
+        transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .tokuen-client-dashboard.is-sidebar-collapsed .tokuen-client-profile {
+        justify-content: flex-start;
+        padding: 16px;
+    }
+
+    .tokuen-client-avatar {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #7b3ff2;
+        border-radius: 50%;
+        color: #ffffff;
+        font-weight: 700;
+    }
+
+    .tokuen-client-profile div {
+        color: #ffffff;
+    }
+
+    .tokuen-client-profile strong {
+        display: block;
+        font-size: 0.95rem;
+    }
+
+    .tokuen-client-profile small {
+        display: block;
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .tokuen-client-main {
+        height: auto;
+        overflow: visible;
+        padding: 0;
+        flex: 1;
+    }
+
+    .tokuen-client-topnav {
+        margin: 0;
+        padding: 0 16px;
+        min-height: 60px;
+        border-bottom: 1px solid rgba(218, 224, 246, 0.9);
+        background: #ffffff;
+        gap: 12px;
+    }
+
+    .tokuen-sidebar-toggle {
+        width: 34px;
+        height: 60px;
+        gap: 4px;
+    }
+
+    .tokuen-client-topnav nav {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .tokuen-client-topnav > div {
+        margin-left: auto;
+    }
+
+    .tokuen-client-header {
+        padding: 20px 16px 0;
+        margin-top: 0;
+    }
+
+    .tokuen-client-header,
+    .tokuen-client-stats article,
+    .tokuen-client-panel {
+        scroll-margin-top: 74px;
+    }
+
+    .tokuen-client-header h1 {
+        font-size: 1.5rem;
+        margin: 0 0 4px 0;
+    }
+
+    .tokuen-client-header p {
+        font-size: 0.95rem;
+        color: #69709a;
+    }
+
+    .tokuen-client-header,
+    .tokuen-client-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .tokuen-client-stats {
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+        margin-top: 20px;
+    }
+
+    .tokuen-client-grid,
+    .tokuen-client-grid.bottom {
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+        margin: 20px 0;
+    }
+
+    .tokuen-client-panel {
+        margin-bottom: 20px;
+    }
+
+    .tokuen-donut-wrap {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .tokuen-loans-section {
+        margin: 20px 16px;
+    }
+
+    .tokuen-loan-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .tokuen-loan-list p {
+        grid-template-columns: 1fr;
+    }
+
+    .tokuen-payment-hero,
+    .tokuen-payment-grid,
+    .tokuen-payment-grid.bottom,
+    .tokuen-application-hero,
+    .tokuen-application-grid,
+    .tokuen-application-grid.bottom,
+    .tokuen-transaction-panel,
+    .tokuen-transaction-grid,
+    .tokuen-settings-grid,
+    .tokuen-settings-grid.bottom {
+        margin: 20px 16px;
+    }
+
+    .tokuen-transaction-stats {
+        padding: 0 16px;
+        margin-top: 20px;
+    }
+
+    .tokuen-payment-breakdown,
+    .tokuen-payment-row,
+    .tokuen-application-actions,
+    .tokuen-application-summary,
+    .tokuen-transaction-row,
+    .tokuen-settings-fields,
+    .tokuen-settings-list p,
+    .tokuen-device-list p,
+    .tokuen-settings-help p {
+        grid-template-columns: 1fr;
+    }
+
+    .tokuen-settings-support-wide {
+        grid-column: auto;
+    }
+
+    .tokuen-settings-help {
+        grid-template-columns: 1fr;
+    }
+
+    .tokuen-settings-list span,
+    .tokuen-device-list span,
+    .tokuen-settings-help span,
+    .tokuen-settings-list button,
+    .tokuen-device-list button {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .tokuen-payment-row.head,
+    .tokuen-transaction-row.head {
+        display: none;
+    }
+}

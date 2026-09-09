@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico?v=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TOKUEN - Transactions</title>
+    <style>
+    html {
+        visibility: hidden;
+    }
+</style>
+  </head>
+  <body>
+    <div class="tokuen-client-dashboard" data-client-dashboard>
+      <aside class="tokuen-client-sidebar">
+    <div class="tokuen-client-sidebar-top">
+        <div class="tokuen-client-brand">
+            <span class="tokuen-brand-mark">
+                <img src="/images/TOKNLOGObw.png" alt="TOKUEN logo">
+            </span>
+            <span class="tokuen-client-brand-text">TOKUEN</span>
+        </div>
+    </div>
+
+    <nav class="tokuen-client-nav" aria-label="Client navigation">
+
+      <a href="../dashboard/">
+        <span>OV</span>
+        Overview 
+      </a> 
+      
+      <a href="../my-loans/"> 
+        <span>LN</span> 
+        My Loans 
+      </a> 
+      
+      <a href="../payments/"> 
+        <span>PY</span> 
+        Payments 
+      </a> 
+      
+      <a href="../applications/"> 
+        <span>AP</span> 
+        Applications 
+      </a> 
+      
+      <a href="../transactions/" class="active" data-dashboard-nav> 
+        <span>TX</span> 
+        Transactions 
+      </a> 
+      
+      <a href="../settings/"> 
+        <span>ST</span> 
+        Settings 
+      </a>
+
+    </nav>
+
+    <a href="../profile/" class="tokuen-client-profile" aria-label="Open profile page">
+        <div class="tokuen-client-avatar">JD</div>
+        <div>
+            <strong>Juan Dela Cruz</strong>
+            <small>Client</small>
+        </div>
+    </a>
+</aside>
+      <main class="tokuen-client-main">
+          <div class="tokuen-client-topnav">
+            <button
+                type="button"
+                class="tokuen-sidebar-toggle"
+                aria-label="Toggle sidebar"
+                aria-expanded="true"
+                data-sidebar-toggle>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+
+            <nav aria-label="Client top navigation">
+                <a href="../dashboard/">Home</a>
+            </nav>
+
+            <div class="tokuen-client-topnav-actions">
+              <a href="../">
+                <button type="button" class="tokuen-logout-btn">
+                  Logout
+                </button>
+              </a>
+            </div>
+          </div>
+
+        <header class="tokuen-client-header">
+            <div>
+                <h1>Transactions</h1>
+                <p>Review posted payments, charges, disbursements, and downloadable receipts.</p>
+            </div>
+        </header>
+
+        <section class="tokuen-transaction-stats" aria-label="Transaction summary">
+            <article>
+                <span class="tokuen-stat-icon">IN</span>
+                <div>
+                    <p>Total Paid</p>
+                    <strong>PHP 71,600</strong>
+                    <small>6 posted payments</small>
+                </div>
+            </article>
+            <article>
+                <span class="tokuen-stat-icon violet">OUT</span>
+                <div>
+                    <p>Loan Released</p>
+                    <strong>PHP 200,000</strong>
+                    <small>Disbursed successfully</small>
+                </div>
+            </article>
+            <article>
+                <span class="tokuen-stat-icon blue">FEE</span>
+                <div>
+                    <p>Total Fees</p>
+                    <strong>PHP 1,250</strong>
+                    <small>Processing and service</small>
+                </div>
+            </article>
+        </section>
+
+        <section class="tokuen-client-panel tokuen-transaction-panel">
+            <div class="tokuen-panel-header">
+                <div>
+                    <h2>Transaction Ledger</h2>
+                    <p>All account movements for your active TOKUEN loan.</p>
+                </div>
+                <span>2026</span>
+            </div>
+
+            <div class="tokuen-transaction-tools">
+                <button type="button" class="active">All</button>
+                <button type="button">Payments</button>
+                <button type="button">Fees</button>
+                <button type="button">Disbursements</button>
+                <button type="button">Receipts</button>
+            </div>
+
+            <div class="tokuen-transaction-table">
+                <div class="tokuen-transaction-row head">
+                    <span>Date</span>
+                    <span>Description</span>
+                    <span>Reference</span>
+                    <span>Status</span>
+                    <span>Amount</span>
+                </div>
+                <div class="tokuen-transaction-row">
+                    <span>June 18, 2026</span>
+                    <strong>Payment Received</strong>
+                    <span>TXN-20260618-0042</span>
+                    <em>Posted</em>
+                    <b>PHP 12,500</b>
+                </div>
+                <div class="tokuen-transaction-row">
+                    <span>June 14, 2026</span>
+                    <strong>Processing Fee</strong>
+                    <span>TXN-20260614-0019</span>
+                    <em>Posted</em>
+                    <b>PHP 250</b>
+                </div>
+                <div class="tokuen-transaction-row">
+                    <span>June 02, 2026</span>
+                    <strong>Loan Disbursement</strong>
+                    <span>TXN-20260602-0091</span>
+                    <em>Released</em>
+                    <b>PHP 75,000</b>
+                </div>
+                <div class="tokuen-transaction-row">
+                    <span>May 18, 2026</span>
+                    <strong>Payment Received</strong>
+                    <span>TXN-20260518-0038</span>
+                    <em>Posted</em>
+                    <b>PHP 12,500</b>
+                </div>
+            </div>
+        </section>
+
+        <section class="tokuen-transaction-grid">
+            <article class="tokuen-client-panel">
+                <div class="tokuen-panel-header">
+                    <h2>Receipts & Statements</h2>
+                    <span>Ready</span>
+                </div>
+
+                <div class="tokuen-transaction-actions">
+                    <button type="button">Download Latest Receipt</button>
+                    <button type="button">Export Transaction History</button>
+                    <button type="button">Generate Statement of Account</button>
+                </div>
+            </article>
+
+            <article class="tokuen-client-panel" id="transaction-help">
+                <div class="tokuen-panel-header">
+                    <h2>Transaction Help</h2>
+                    <span>Support</span>
+                </div>
+
+                <div class="tokuen-transaction-help">
+                    <p><strong>Payment not posted?</strong><span>Upload proof of payment for manual verification.</span></p>
+                    <p><strong>Need a correction?</strong><span>Request a review of a fee, payment, or reference number.</span></p>
+                    <p><strong>Official receipts</strong><span>Receipts are available after successful posting.</span></p>
+                </div>
+            </article>
+        </section>
+      </main>
+  </div>
+    <script type="module" src="../src/main.js"></script>
+  </body>
+</html>

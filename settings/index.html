@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico?v=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TOKUEN - Settings</title>
+    <style>
+    html {
+        visibility: hidden;
+    }
+</style>
+  </head>
+  <body>
+    <div class="tokuen-client-dashboard" data-client-dashboard>
+      <aside class="tokuen-client-sidebar">
+    <div class="tokuen-client-sidebar-top">
+        <div class="tokuen-client-brand">
+            <span class="tokuen-brand-mark">
+                <img src="/images/TOKNLOGObw.png" alt="TOKUEN logo">
+            </span>
+            <span class="tokuen-client-brand-text">TOKUEN</span>
+        </div>
+    </div>
+
+    <nav class="tokuen-client-nav" aria-label="Client navigation">
+
+      <a href="../dashboard/">
+        <span>OV</span>
+        Overview 
+      </a> 
+      
+      <a href="../my-loans/"> 
+        <span>LN</span> 
+        My Loans 
+      </a> 
+      
+      <a href="../payments/"> 
+        <span>PY</span> 
+        Payments 
+      </a> 
+      
+      <a href="../applications/"> 
+        <span>AP</span> 
+        Applications 
+      </a> 
+      
+      <a href="../transactions/"> 
+        <span>TX</span> 
+        Transactions 
+      </a> 
+      
+      <a href="../settings/" class="active" data-dashboard-nav> 
+        <span>ST</span> 
+        Settings 
+      </a>
+
+    </nav>
+
+    <a href="../profile/" class="tokuen-client-profile" aria-label="Open profile page">
+        <div class="tokuen-client-avatar">JD</div>
+        <div>
+            <strong>Juan Dela Cruz</strong>
+            <small>Client</small>
+        </div>
+    </a>
+</aside>
+      <main class="tokuen-client-main">
+          <div class="tokuen-client-topnav">
+            <button
+                type="button"
+                class="tokuen-sidebar-toggle"
+                aria-label="Toggle sidebar"
+                aria-expanded="true"
+                data-sidebar-toggle>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+
+            <nav aria-label="Client top navigation">
+                <a href="../dashboard/">Home</a>
+            </nav>
+
+            <div class="tokuen-client-topnav-actions">
+              <a href="../">
+                <button type="button" class="tokuen-logout-btn">
+                  Logout
+                </button>
+              </a>
+            </div>
+          </div>
+
+        <header class="tokuen-client-header">
+            <div>
+                <h1>Settings</h1>
+                <p>Manage security, notifications, privacy, devices, and account preferences.</p>
+            </div>
+        </header>
+
+        <section class="tokuen-settings-grid">
+            <article class="tokuen-client-panel">
+                <div class="tokuen-panel-header">
+                    <h2>Security</h2>
+                    <span>Protected</span>
+                </div>
+
+                <div class="tokuen-settings-list">
+                    <p><strong>Password</strong><span>Last changed recently</span><button type="button">Change</button></p>
+                    <p><strong>Email OTP</strong><span>Enabled for verification</span><button type="button">Manage</button></p>
+                    <p><strong>Login alerts</strong><span>Notify on new device login</span><button type="button">On</button></p>
+                </div>
+            </article>
+
+            <article class="tokuen-client-panel">
+                <div class="tokuen-panel-header">
+                    <h2>Notifications</h2>
+                    <span>Preferences</span>
+                </div>
+
+                <div class="tokuen-toggle-list">
+                    <label><span>Payment reminders</span><input type="checkbox" checked></label>
+                    <label><span>Application updates</span><input type="checkbox" checked></label>
+                    <label><span>Promotional offers</span><input type="checkbox"></label>
+                    <label><span>Security alerts</span><input type="checkbox" checked></label>
+                </div>
+            </article>
+
+            <article class="tokuen-client-panel">
+                <div class="tokuen-panel-header">
+                    <h2>Privacy</h2>
+                    <span>Controls</span>
+                </div>
+
+                <div class="tokuen-settings-list">
+                    <p><strong>Download account data</strong><span>Get a copy of profile and loan records</span><button type="button">Request</button></p>
+                    <p><strong>Communication consent</strong><span>Manage email and SMS consent</span><button type="button">Edit</button></p>
+                    <p><strong>Account deletion</strong><span>Request review before closure</span><button type="button">Review</button></p>
+                </div>
+            </article>
+
+            <article class="tokuen-client-panel">
+                <div class="tokuen-panel-header">
+                    <h2>Linked Devices</h2>
+                    <span>2 active</span>
+                </div>
+
+                <div class="tokuen-device-list">
+                    <p><strong>Windows Desktop</strong><span>Current session - 127.0.0.1</span><button type="button">Current</button></p>
+                    <p><strong>Mobile Browser</strong><span>Last active June 17, 2026</span><button type="button">Remove</button></p>
+                </div>
+            </article>
+
+            <article class="tokuen-client-panel tokuen-settings-support-wide" id="settings-support">
+                <div class="tokuen-panel-header">
+                    <h2>Support Settings</h2>
+                    <span>Help</span>
+                </div>
+
+                <div class="tokuen-settings-help">
+                    <p><strong>Update verified details</strong><span>Some account fields need staff review before changes apply.</span></p>
+                    <p><strong>Security concern?</strong><span>Change your password and remove unknown devices immediately.</span></p>
+                    <p><strong>Need assistance?</strong><span>Contact support for account and privacy requests.</span></p>
+                </div>
+            </article>
+        </section>
+      </main>
+  </div>
+    <script type="module" src="../src/main.js"></script>
+  </body>
+</html>

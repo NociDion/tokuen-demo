@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico?v=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TOKUEN - Forget Password</title>
+    <style>
+    html {
+        visibility: hidden;
+    }
+</style>
+  </head>
+  <body>
+    <div class="tokuen-password-page">
+    <header class="tokuen-login-topbar">
+        <div class="tokuen-brand">
+            <span class="tokuen-brand-mark">
+                <img src="/images/TOKNLOGObw.png" alt="TOKUEN logo">
+            </span>
+            <span>TOKUEN</span>
+        </div>
+    </header>
+
+    <main class="tokuen-password-shell">
+        <section class="tokuen-password-hero" aria-label="Password recovery information">
+            <span class="tokuen-kicker">Account Recovery</span>
+            <h1>Reset access securely.</h1>
+            <p>Verify your identity with a one-time code, then create a new password for your TOKUEN account.</p>
+        </section>
+
+        <section class="tokuen-password-main" aria-label="Change password form">
+            <div class="tokuen-login-logo">
+                <span>Change Password</span>
+                <small>
+                    <div class="step step-1" style="display: block;">
+                        Request a verification code
+                    </div>
+                    <div class="step step-2" style="display: none;">
+                        Confirm your one-time code
+                    </div>
+                    <div class="step step-3" style="display: none;">
+                        Create your new password
+                    </div>
+                </small>
+            </div>
+
+            <div class="card tokuen-auth-card tokuen-password-card">
+                <div class="card-body login-card-body">
+                    <div class="step step-1" style="display: block;">
+                        <p class="login-box-msg">Enter your email address or username to receive an OTP.</p>
+
+                        <div class="input-group mb-3 tokuen-input-group">
+                            <input
+                                type="text"
+                                wire:model.blur="loginIdentifier"
+                                class="form-control"
+                                placeholder="Email or username"
+                                autocomplete="username">
+                            <div class="input-group-text">
+                                <span aria-hidden="true">@</span>
+                            </div>
+                        </div>
+
+                        <div class="tokuen-password-actions">
+                            <button type="button" class="btn tokuen-login-btn" onclick="showStep(2)">
+                                Send OTP to Email
+                            </button>
+
+                            <button type="button" class="btn tokuen-secondary-btn" onclick="showStep(2)">
+                                Send OTP to Mobile
+                            </button>
+                        </div>
+                    </div>
+                    <div class="step step-2" style="display: none;">
+                        <p class="login-box-msg">OTP has been sent to your Email/Mobile.</p>
+                        <div class="tokuen-otp-status">Time left: 100 seconds</div>
+
+                        <div class="input-group mb-3 tokuen-input-group">
+                            <input
+                                type="text"
+                                wire:model.blur="otp"
+                                class="form-control"
+                                placeholder="Enter OTP"
+                                inputmode="numeric"
+                                autocomplete="one-time-code">
+                            <div class="input-group-text">
+                                <span aria-hidden="true">#</span>
+                            </div>
+                        </div>
+
+                        <div class="tokuen-password-actions">
+                            <button type="button" class="btn tokuen-login-btn" onclick="showStep(3)">
+                                Confirm OTP
+                            </button>
+                            <button type="button" class="btn tokuen-secondary-btn">
+                                Resend OTP
+                            </button>
+                        </div>
+                    </div>
+                    <div class="step step-3" style="display: none;">
+                        <p class="login-box-msg">Enter and confirm your new password.</p>
+
+                        <div class="input-group mb-3 tokuen-input-group">
+                            <input
+                                type="password"
+                                wire:model.blur="new_password"
+                                class="form-control"
+                                placeholder="New password"
+                                autocomplete="new-password">
+                            <div class="input-group-text">
+                                <span aria-hidden="true">#</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3 tokuen-input-group">
+                            <input
+                                type="password"
+                                wire:model.blur="new_password_confirmation"
+                                class="form-control"
+                                placeholder="Confirm new password"
+                                autocomplete="new-password">
+                            <div class="input-group-text">
+                                <span aria-hidden="true">#</span>
+                            </div>
+                        </div>
+                        <a href="../">
+                            <button type="button" class="btn tokuen-login-btn w-100">
+                                Back to Login
+                            </button>
+                        </a>
+                    </div>
+
+                    <div class="tokuen-auth-links">
+                        <a href="../">Back to Login</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <script>
+            function showStep(stepNumber) {
+                document.querySelectorAll('.step').forEach(element => {
+                    element.style.display = 'none'
+                })
+
+                document.querySelectorAll(`.step-${stepNumber}`).forEach(element => {
+                    element.style.display = 'block'
+                })
+            }
+        </script>
+    </div>
+    <script type="module" src="../src/main.js"></script>
+  </body>
+</html>

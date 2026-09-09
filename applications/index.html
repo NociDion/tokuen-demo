@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico?v=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TOKUEN - Applications</title>
+    <style>
+    html {
+        visibility: hidden;
+    }
+</style>
+  </head>
+  <body>
+    <div class="tokuen-client-dashboard" data-client-dashboard>
+      <aside class="tokuen-client-sidebar">
+    <div class="tokuen-client-sidebar-top">
+        <div class="tokuen-client-brand">
+            <span class="tokuen-brand-mark">
+                <img src="/images/TOKNLOGObw.png" alt="TOKUEN logo">
+            </span>
+            <span class="tokuen-client-brand-text">TOKUEN</span>
+        </div>
+    </div>
+
+    <nav class="tokuen-client-nav" aria-label="Client navigation">
+
+      <a href="../dashboard/">
+        <span>OV</span>
+        Overview 
+      </a> 
+      
+      <a href="../my-loans/"> 
+        <span>LN</span> 
+        My Loans 
+      </a> 
+      
+      <a href="../payments/"> 
+        <span>PY</span> 
+        Payments 
+      </a> 
+      
+      <a href="../applications/" class="active" data-dashboard-nav> 
+        <span>AP</span> 
+        Applications 
+      </a> 
+      
+      <a href="../transactions/"> 
+        <span>TX</span> 
+        Transactions 
+      </a> 
+      
+      <a href="../settings/"> 
+        <span>ST</span> 
+        Settings 
+      </a>
+
+    </nav>
+
+    <a href="../profile/" class="tokuen-client-profile" aria-label="Open profile page">
+        <div class="tokuen-client-avatar">JD</div>
+        <div>
+            <strong>Juan Dela Cruz</strong>
+            <small>Client</small>
+        </div>
+    </a>
+</aside>
+      <main class="tokuen-client-main">
+          <div class="tokuen-client-topnav">
+            <button
+                type="button"
+                class="tokuen-sidebar-toggle"
+                aria-label="Toggle sidebar"
+                aria-expanded="true"
+                data-sidebar-toggle>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+
+            <nav aria-label="Client top navigation">
+                <a href="../dashboard/">Home</a>
+            </nav>
+
+            <div class="tokuen-client-topnav-actions">
+              <a href="../">
+                <button type="button" class="tokuen-logout-btn">
+                  Logout
+                </button>
+              </a>
+            </div>
+          </div>
+
+        <header class="tokuen-client-header">
+            <div>
+                <h1>Applications</h1>
+                <p>Start a new loan request, track submitted applications, and complete requirements.</p>
+            </div>
+        </header>
+
+        <section class="tokuen-application-hero">
+            <article class="tokuen-client-panel tokuen-application-start">
+                <div class="tokuen-panel-header">
+                    <div>
+                        <h2>Start New Application</h2>
+                        <p>Choose the loan type that best matches your current need.</p>
+                    </div>
+                    <span>Eligible</span>
+                </div>
+
+                <div class="tokuen-application-options">
+                    <button type="button">
+                        <strong>Personal Business Loan</strong>
+                        <span>Up to PHP 200,000</span>
+                    </button>
+                    <button type="button">
+                        <strong>Top-up Loan</strong>
+                        <span>Up to PHP 50,000</span>
+                    </button>
+                    <button type="button">
+                        <strong>Emergency Loan</strong>
+                        <span>Fast review after document check</span>
+                    </button>
+                </div>
+
+                <div class="tokuen-application-actions">
+                    <button type="button">Create Application</button>
+                    <button type="button">Check Eligibility</button>
+                </div>
+            </article>
+
+            <article class="tokuen-client-panel tokuen-application-status">
+                <div class="tokuen-panel-header">
+                    <h2>Current Application</h2>
+                    <span>Under Review</span>
+                </div>
+
+                <div class="tokuen-application-timeline">
+                    <p class="done"><strong>Submitted</strong><span>June 16, 2026</span></p>
+                    <p class="done"><strong>Documents Checked</strong><span>June 17, 2026</span></p>
+                    <p class="active"><strong>Credit Review</strong><span>In progress</span></p>
+                    <p><strong>Approval Decision</strong><span>Pending</span></p>
+                </div>
+            </article>
+        </section>
+
+        <section class="tokuen-application-grid">
+            <article class="tokuen-client-panel">
+                <div class="tokuen-panel-header">
+                    <h2>Required Documents</h2>
+                    <span>Checklist</span>
+                </div>
+
+                <div class="tokuen-requirement-list">
+                    <p class="complete"><strong>Valid ID</strong><span>Uploaded</span></p>
+                    <p class="complete"><strong>Proof of billing</strong><span>Uploaded</span></p>
+                    <p class="complete"><strong>Income document</strong><span>Uploaded</span></p>
+                    <p><strong>Barangay certificate</strong><span>Optional for faster review</span></p>
+                </div>
+            </article>
+
+            <article class="tokuen-client-panel">
+                <div class="tokuen-panel-header">
+                    <h2>Application Summary</h2>
+                    <span>Draft</span>
+                </div>
+
+                <div class="tokuen-application-summary">
+                    <p><span>Requested Amount</span><strong>PHP 150,000</strong></p>
+                    <p><span>Purpose</span><strong>Business Expansion</strong></p>
+                    <p><span>Preferred Term</span><strong>18 months</strong></p>
+                    <p><span>Estimated Monthly</span><strong>PHP 9,450</strong></p>
+                </div>
+            </article>
+        </section>
+
+        <section class="tokuen-application-grid bottom">
+            <article class="tokuen-client-panel">
+                <div class="tokuen-panel-header">
+                    <h2>Application History</h2>
+                    <a href="#application-history">View all</a>
+                </div>
+
+                <div class="tokuen-client-table" id="application-history">
+                    <div>
+                        <span>Personal Business Loan</span>
+                        <strong>Under Review</strong>
+                        <small>Submitted June 16, 2026</small>
+                    </div>
+                    <div>
+                        <span>Top-up Loan</span>
+                        <strong>Pre-qualified</strong>
+                        <small>Offer valid until July 12, 2026</small>
+                    </div>
+                    <div>
+                        <span>Emergency Loan</span>
+                        <strong>Closed</strong>
+                        <small>Completed March 24, 2026</small>
+                    </div>
+                </div>
+            </article>
+
+            <article class="tokuen-client-panel" id="application-help">
+                <div class="tokuen-panel-header">
+                    <h2>Application Help</h2>
+                    <span>Support</span>
+                </div>
+
+                <div class="tokuen-application-help">
+                    <p><strong>Need to update details?</strong><span>Edit your draft before final submission.</span></p>
+                    <p><strong>Missing requirement?</strong><span>Upload a document or request manual review.</span></p>
+                    <p><strong>Want a faster decision?</strong><span>Keep your profile and payment record updated.</span></p>
+                </div>
+            </article>
+        </section>
+      </main>
+  </div>
+    <script type="module" src="../src/main.js"></script>
+  </body>
+</html>

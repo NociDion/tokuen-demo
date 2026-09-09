@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico?v=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TOKUEN - Profile</title>
+    <style>
+    html {
+        visibility: hidden;
+    }
+</style>
+  </head>
+  <body>
+    <div class="tokuen-client-dashboard" data-client-dashboard>
+      <aside class="tokuen-client-sidebar">
+    <div class="tokuen-client-sidebar-top">
+        <div class="tokuen-client-brand">
+            <span class="tokuen-brand-mark">
+                <img src="/images/TOKNLOGObw.png" alt="TOKUEN logo">
+            </span>
+            <span class="tokuen-client-brand-text">TOKUEN</span>
+        </div>
+    </div>
+
+    <nav class="tokuen-client-nav" aria-label="Client navigation">
+
+      <a href="../dashboard/">
+        <span>OV</span>
+        Overview 
+      </a> 
+      
+      <a href="../my-loans/"> 
+        <span>LN</span> 
+        My Loans 
+      </a> 
+      
+      <a href="../payments/"> 
+        <span>PY</span> 
+        Payments 
+      </a> 
+      
+      <a href="../applications/"> 
+        <span>AP</span> 
+        Applications 
+      </a> 
+      
+      <a href="../transactions/"> 
+        <span>TX</span> 
+        Transactions 
+      </a> 
+      
+      <a href="../settings/"> 
+        <span>ST</span> 
+        Settings 
+      </a>
+
+    </nav>
+
+    <a href="../profile/" class="tokuen-client-profile" aria-label="Open profile page">
+        <div class="tokuen-client-avatar">JD</div>
+        <div>
+            <strong>Juan Dela Cruz</strong>
+            <small>Client</small>
+        </div>
+    </a>
+</aside>
+      <main class="tokuen-client-main">
+          <div class="tokuen-client-topnav">
+            <button
+                type="button"
+                class="tokuen-sidebar-toggle"
+                aria-label="Toggle sidebar"
+                aria-expanded="true"
+                data-sidebar-toggle>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+
+            <nav aria-label="Client top navigation">
+                <a href="../dashboard/">Home</a>
+            </nav>
+
+            <div class="tokuen-client-topnav-actions">
+              <a href="../">
+                <button type="button" class="tokuen-logout-btn">
+                  Logout
+                </button>
+              </a>
+            </div>
+          </div>
+
+        <header class="tokuen-client-header">
+            <div>
+                <h1>Profile</h1>
+                <p>Keep your borrower details, contact information, and verification records updated.</p>
+            </div>
+        </header>
+
+        <section class="tokuen-settings-grid">
+            <article class="tokuen-client-panel tokuen-settings-profile">
+                <div class="tokuen-panel-header">
+                    <div>
+                        <h2>Profile Details</h2>
+                        <p>Keep your contact and borrower information updated.</p>
+                    </div>
+                    <span>Verified</span>
+                </div>
+
+                <div class="tokuen-settings-identity">
+                    <div class="tokuen-client-avatar">JD</div>
+                    <div>
+                        <strong>Juan Dela Cruz</strong>
+                        <span>Client Account</span>
+                    </div>
+                </div>
+
+                <div class="tokuen-settings-fields">
+                    <label>Full name <input type="text" value="Juan Dela Cruz"></label>
+                    <label>Email address <input type="email" value="juandelacruz1234@gmail.com"></label>
+                    <label>Mobile number <input type="text" value="+63 9876543210"></label>
+                    <label>Address <input type="text" value=" Blk 1 Lot 2 3rd St. Brgy. 321, Metro Manila, Philippines"></label>
+                </div>
+
+                <div class="tokuen-settings-actions">
+                    <button type="button">Save Profile</button>
+                    <button type="button">Request Data Update</button>
+                </div>
+            </article>
+
+            <article class="tokuen-client-panel">
+                <div class="tokuen-panel-header">
+                    <h2>Verification</h2>
+                    <span>Complete</span>
+                </div>
+
+                <div class="tokuen-settings-list">
+                    <p><strong>Identity</strong><span>Valid ID verified</span><button type="button">View</button></p>
+                    <p><strong>Contact</strong><span>Email and mobile ready for OTP</span><button type="button">Manage</button></p>
+                    <p><strong>Borrower Profile</strong><span>Ready for loan review</span><button type="button">Update</button></p>
+                </div>
+            </article>
+        </section>
+
+        <section class="tokuen-settings-grid bottom">
+            <article class="tokuen-client-panel">
+                <div class="tokuen-panel-header">
+                    <h2>Personal Information</h2>
+                    <span>Records</span>
+                </div>
+
+                <div class="tokuen-settings-list">
+                    <p><strong>Birthday</strong><span>January 02, 2003</span><button type="button">Edit</button></p>
+                    <p><strong>Nationality</strong><span>Filipino</span><button type="button">Edit</button></p>
+                    <p><strong>Gender</strong><span>Male</span><button type="button">Edit</button></p>
+                </div>
+            </article>
+
+            <article class="tokuen-client-panel" id="profile-support">
+                <div class="tokuen-panel-header">
+                    <h2>Profile Help</h2>
+                    <span>Support</span>
+                </div>
+
+                <div class="tokuen-settings-help">
+                    <p><strong>Need verified details changed?</strong><span>Some profile changes require staff approval.</span></p>
+                    <p><strong>Keep records accurate</strong><span>Loan reviews use your current profile information.</span></p>
+                    <p><strong>Upload missing proof</strong><span>Prepare valid ID and address documents when requested.</span></p>
+                </div>
+            </article>
+        </section>
+      </main>
+  </div>
+    <script type="module" src="../src/main.js"></script>
+  </body>
+</html>

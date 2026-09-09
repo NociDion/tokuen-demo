@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico?v=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TOKUEN - Payments</title>
+    <style>
+    html {
+        visibility: hidden;
+    }
+</style>
+  </head>
+  <body>
+    <div class="tokuen-client-dashboard" data-client-dashboard>
+      <aside class="tokuen-client-sidebar">
+    <div class="tokuen-client-sidebar-top">
+        <div class="tokuen-client-brand">
+            <span class="tokuen-brand-mark">
+                <img src="/images/TOKNLOGObw.png" alt="TOKUEN logo">
+            </span>
+            <span class="tokuen-client-brand-text">TOKUEN</span>
+        </div>
+    </div>
+
+    <nav class="tokuen-client-nav" aria-label="Client navigation">
+
+      <a href="../dashboard/">
+        <span>OV</span>
+        Overview 
+      </a> 
+      
+      <a href="../my-loans/"> 
+        <span>LN</span> 
+        My Loans 
+      </a> 
+      
+      <a href="../payments/" class="active" data-dashboard-nav> 
+        <span>PY</span> 
+        Payments 
+      </a> 
+      
+      <a href="../applications/"> 
+        <span>AP</span> 
+        Applications 
+      </a> 
+      
+      <a href="../transactions/"> 
+        <span>TX</span> 
+        Transactions 
+      </a> 
+      
+      <a href="../settings/"> 
+        <span>ST</span> 
+        Settings 
+      </a>
+
+    </nav>
+
+    <a href="../profile/" class="tokuen-client-profile" aria-label="Open profile page">
+        <div class="tokuen-client-avatar">JD</div>
+        <div>
+            <strong>Juan Dela Cruz</strong>
+            <small>Client</small>
+        </div>
+    </a>
+</aside>
+      <main class="tokuen-client-main">
+          <div class="tokuen-client-topnav">
+            <button
+                type="button"
+                class="tokuen-sidebar-toggle"
+                aria-label="Toggle sidebar"
+                aria-expanded="true"
+                data-sidebar-toggle>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+
+            <nav aria-label="Client top navigation">
+                <a href="../dashboard/">Home</a>
+            </nav>
+
+            <div class="tokuen-client-topnav-actions">
+              <a href="../">
+                <button type="button" class="tokuen-logout-btn">
+                  Logout
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <header class="tokuen-client-header">
+            <div>
+                <h1>Payments</h1>
+                <p>Review your amount due, choose a payment channel, and track payment history.</p>
+            </div>
+        </header>
+
+        <section class="tokuen-payment-hero">
+            <article class="tokuen-client-panel tokuen-payment-due">
+                <div class="tokuen-panel-header">
+                    <div>
+                        <h2>Amount Due</h2>
+                        <p>Your next scheduled payment for active loan TOK-2026-0018.</p>
+                    </div>
+                    <span>Due soon</span>
+                </div>
+
+                <div class="tokuen-payment-amount">
+                    <span>Pay before July 18, 2026</span>
+                    <strong>PHP 12,500</strong>
+                </div>
+
+                <div class="tokuen-payment-breakdown">
+                    <p><span>Principal</span><strong>PHP 10,800</strong></p>
+                    <p><span>Interest</span><strong>PHP 1,450</strong></p>
+                    <p><span>Service fee</span><strong>PHP 250</strong></p>
+                </div>
+
+                <div class="tokuen-payment-actions">
+                    <button type="button">Pay Now</button>
+                    <button type="button">Download Bill</button>
+                </div>
+            </article>
+
+            <article class="tokuen-client-panel tokuen-payment-methods">
+                <div class="tokuen-panel-header">
+                    <h2>Payment Channels</h2>
+                    <span>Available</span>
+                </div>
+
+                <div class="tokuen-method-list">
+                    <button type="button"><strong>GCash</strong><span>Instant posting</span></button>
+                    <button type="button"><strong>Maya</strong><span>Instant posting</span></button>
+                    <button type="button"><strong>Bank Transfer</strong><span>1-2 business days</span></button>
+                    <button type="button"><strong>Cash Center</strong><span>Manual verification</span></button>
+                </div>
+            </article>
+        </section>
+
+        <section class="tokuen-payment-grid">
+            <article class="tokuen-client-panel">
+                <div class="tokuen-panel-header">
+                    <h2>Payment Schedule</h2>
+                    <span>Next 4 dues</span>
+                </div>
+
+                <div class="tokuen-payment-table">
+                    <div class="tokuen-payment-row head">
+                        <span>Due Date</span>
+                        <span>Amount</span>
+                        <span>Status</span>
+                    </div>
+                    <div class="tokuen-payment-row">
+                        <span>July 18, 2026</span>
+                        <strong>PHP 12,500</strong>
+                        <em>Upcoming</em>
+                    </div>
+                    <div class="tokuen-payment-row">
+                        <span>August 18, 2026</span>
+                        <strong>PHP 12,500</strong>
+                        <em>Scheduled</em>
+                    </div>
+                    <div class="tokuen-payment-row">
+                        <span>September 18, 2026</span>
+                        <strong>PHP 12,500</strong>
+                        <em>Scheduled</em>
+                    </div>
+                    <div class="tokuen-payment-row">
+                        <span>October 18, 2026</span>
+                        <strong>PHP 12,500</strong>
+                        <em>Scheduled</em>
+                    </div>
+                </div>
+            </article>
+
+            <article class="tokuen-client-panel">
+                <div class="tokuen-panel-header">
+                    <h2>Payment Status</h2>
+                    <span>Healthy</span>
+                </div>
+
+                <div class="tokuen-status-list">
+                    <p><span></span> Current <strong>No missed payment</strong></p>
+                    <p><span></span> Paid this month <strong>PHP 12,500</strong></p>
+                    <p><span></span> Remaining balance <strong>PHP 128,400</strong></p>
+                </div>
+            </article>
+        </section>
+
+        <section class="tokuen-payment-grid bottom">
+            <article class="tokuen-client-panel">
+                <div class="tokuen-panel-header">
+                    <h2>Recent Payment History</h2>
+                    <a href="#receipts">Receipts</a>
+                </div>
+
+                <div class="tokuen-client-table">
+                    <div>
+                        <span>Payment Received</span>
+                        <strong>PHP 12,500</strong>
+                        <small>June 18, 2026 - GCash</small>
+                    </div>
+                    <div>
+                        <span>Payment Received</span>
+                        <strong>PHP 12,500</strong>
+                        <small>May 18, 2026 - Bank Transfer</small>
+                    </div>
+                    <div>
+                        <span>Processing Fee</span>
+                        <strong>PHP 250</strong>
+                        <small>May 18, 2026 - Receipt attached</small>
+                    </div>
+                </div>
+            </article>
+
+            <article class="tokuen-client-panel" id="payment-support">
+                <div class="tokuen-panel-header">
+                    <h2>Payment Help</h2>
+                    <span>Support</span>
+                </div>
+
+                <div class="tokuen-payment-help">
+                    <p><strong>Upload proof of payment</strong><span>For manual bank or cash center payments.</span></p>
+                    <p><strong>Report payment issue</strong><span>Request verification if your payment is not posted.</span></p>
+                    <p id="receipts"><strong>Download official receipt</strong><span>Receipts are available after posting.</span></p>
+                </div>
+            </article>
+        </section>
+      </main>
+  </div>
+    <script type="module" src="../src/main.js"></script>
+  </body>
+</html>

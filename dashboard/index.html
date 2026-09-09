@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico?v=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TOKUEN - Home</title>
+    <style>
+    html {
+        visibility: hidden;
+    }
+</style>
+  </head>
+  <body>
+    <div class="tokuen-client-dashboard" data-client-dashboard>
+      <aside class="tokuen-client-sidebar">
+    <div class="tokuen-client-sidebar-top">
+        <div class="tokuen-client-brand">
+            <span class="tokuen-brand-mark">
+                <img src="/images/TOKNLOGObw.png" alt="TOKUEN logo">
+            </span>
+            <span class="tokuen-client-brand-text">TOKUEN</span>
+        </div>
+    </div>
+
+    <nav class="tokuen-client-nav" aria-label="Client navigation">
+
+      <a href="../dashboard/" class="active" data-dashboard-nav>
+        <span>OV</span>
+        Overview 
+      </a> 
+      
+      <a href="../my-loans/"> 
+        <span>LN</span> 
+        My Loans 
+      </a> 
+      
+      <a href="../payments/"> 
+        <span>PY</span> 
+        Payments 
+      </a> 
+      
+      <a href="../applications/"> 
+        <span>AP</span> 
+        Applications 
+      </a> 
+      
+      <a href="../transactions/"> 
+        <span>TX</span> 
+        Transactions 
+      </a> 
+      
+      <a href="../settings/"> 
+        <span>ST</span> 
+        Settings 
+      </a>
+
+    </nav>
+
+    <a href="../profile/" class="tokuen-client-profile" aria-label="Open profile page">
+        <div class="tokuen-client-avatar">JD</div>
+        <div>
+            <strong>Juan Dela Cruz</strong>
+            <small>Client</small>
+        </div>
+    </a>
+</aside>
+      <main class="tokuen-client-main">
+          <div class="tokuen-client-topnav">
+            <button
+                type="button"
+                class="tokuen-sidebar-toggle"
+                aria-label="Toggle sidebar"
+                aria-expanded="true"
+                data-sidebar-toggle>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+
+            <nav aria-label="Client top navigation">
+                <a href="../dashboard/">Home</a>
+            </nav>
+
+            <div class="tokuen-client-topnav-actions">
+              <a href="../">
+                <button type="button" class="tokuen-logout-btn">
+                  Logout
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <header class="tokuen-client-header" id="overview">
+              <div>
+                  <h1>Good day, Juan</h1>
+                  <p>Here is your TOKUEN client overview.</p>
+              </div>
+          </header>
+
+          <section class="tokuen-client-stats" aria-label="Client account summary">
+              <article id="loans">
+                  <span class="tokuen-stat-icon">PHP</span>
+                  <div>
+                      <p>Active Loan Balance</p>
+                      <strong>PHP 128,400</strong>
+                      <small>Next payment due soon</small>
+                  </div>
+              </article>
+
+              <article id="payments">
+                  <span class="tokuen-stat-icon violet">OK</span>
+                  <div>
+                      <p>Repayment Status</p>
+                      <strong>Current</strong>
+                      <small>No missed payment</small>
+                  </div>
+              </article>
+
+              <article id="settings">
+                  <span class="tokuen-stat-icon blue">UP</span>
+                  <div>
+                      <p>Credit Progress</p>
+                      <strong>82%</strong>
+                      <small>Improved this month</small>
+                  </div>
+              </article>
+
+              <article id="applications">
+                  <span class="tokuen-stat-icon violet">3</span>
+                  <div>
+                      <p>Available Offers</p>
+                      <strong>3</strong>
+                      <small>Pre-qualified options</small>
+                  </div>
+              </article>
+          </section>
+
+          <section class="tokuen-client-grid">
+              <article class="tokuen-client-panel tokuen-client-chart">
+                  <div class="tokuen-panel-header">
+                      <h2>Loan Activity</h2>
+                      <span>Last 6 months</span>
+                  </div>
+
+                  <div class="tokuen-chart-area">
+                      <div class="tokuen-chart-path"></div>
+                      <div class="tokuen-chart-point p1"></div>
+                      <div class="tokuen-chart-point p2"></div>
+                      <div class="tokuen-chart-point p3"></div>
+                      <div class="tokuen-chart-point p4"></div>
+                  </div>
+
+                  <div class="tokuen-chart-labels">
+                      <span>Jan</span>
+                      <span>Feb</span>
+                      <span>Mar</span>
+                      <span>Apr</span>
+                      <span>May</span>
+                      <span>Jun</span>
+                  </div>
+              </article>
+
+              <article class="tokuen-client-panel">
+                  <div class="tokuen-panel-header">
+                      <h2>Loan Status</h2>
+                      <span>Active</span>
+                  </div>
+
+                  <div class="tokuen-donut-wrap">
+                      <div class="tokuen-donut"></div>
+                      <div class="tokuen-status-list">
+                          <p><span></span> Paid <strong>68%</strong></p>
+                          <p><span></span> Remaining <strong>32%</strong></p>
+                          <p><span></span> Overdue <strong>0%</strong></p>
+                      </div>
+                  </div>
+              </article>
+          </section>
+
+          <section class="tokuen-client-grid bottom">
+              <article class="tokuen-client-panel" id="transactions">
+                  <div class="tokuen-panel-header">
+                      <h2>Recent Transactions</h2>
+                      <a href="#transactions">View all</a>
+                  </div>
+
+                  <div class="tokuen-client-table">
+                      <div>
+                          <span>Payment Received</span>
+                          <strong>PHP 12,500</strong>
+                          <small>June 18, 2026</small>
+                      </div>
+                      <div>
+                          <span>Processing Fee</span>
+                          <strong>PHP 250</strong>
+                          <small>June 14, 2026</small>
+                      </div>
+                      <div>
+                          <span>Loan Disbursement</span>
+                          <strong>PHP 75,000</strong>
+                          <small>June 02, 2026</small>
+                      </div>
+                  </div>
+              </article>
+
+              <article class="tokuen-client-panel" id="client-insights">
+                  <div class="tokuen-panel-header">
+                      <h2>Client Insights</h2>
+                      <span>Updated</span>
+                  </div>
+
+                  <div class="tokuen-insight-list">
+                      <p>Payment behavior is in good standing.</p>
+                      <p>Your active loan is 68% paid.</p>
+                      <p>You may qualify for a top-up offer.</p>
+                      <p>Keep your profile details updated.</p>
+                  </div>
+              </article>
+          </section>
+      </main>
+  </div>
+    <script type="module" src="../src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico?v=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TOKUEN - Login</title>
+    <style>
+    html {
+        visibility: hidden;
+    }
+</style>
+  </head>
+  <body>
+    <div class="tokuen-login-page login-page">
+    <header class="tokuen-login-topbar">
+        <div class="tokuen-brand">
+            <span class="tokuen-brand-mark">
+                <img src="/images/TOKNLOGObw.png" alt="TOKUEN logo">
+            </span>
+            <span>TOKUEN</span>
+        </div>
+    </header>
+
+    <main class="tokuen-login-shell">
+        <section class="tokuen-hero-panel" aria-label="TOKUEN dashboard preview">
+            <div class="tokuen-hero-copy">
+                <span class="tokuen-kicker">Smart lending workspace</span>
+                <h1>Loan insights, beautifully organized.</h1>
+                <p>Monitor borrowers, applications, repayment health, and portfolio movement from a focused admin workspace.</p>
+            </div>
+
+        </section>
+
+        <section class="tokuen-login-main" aria-label="Login form">
+            <div class="login-logo tokuen-login-logo">
+                <span>Welcome back</span>
+                <small>Use your TOKUEN account to continue</small>
+            </div>
+
+            <div class="card tokuen-auth-card login-box tokuen-login-box">
+                <div class="card-body login-card-body">
+                    <p class="login-box-msg">Account Login</p>
+
+                    <form>
+                        <div class="input-group mb-3 tokuen-input-group">
+                            <input 
+                              type="text" 
+                              class="form-control" 
+                              placeholder="Email address or username" 
+                              autocomplete="username" >
+                            <div class="input-group-text">
+                                <span aria-hidden="true">@</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-2 tokuen-input-group">
+                            <input 
+                              type="password" 
+                              class="form-control" 
+                              placeholder="Password" 
+                              autocomplete="current-password" >
+                            <div class="input-group-text">
+                                <span aria-hidden="true">#</span>
+                            </div>
+                        </div>
+
+                        <div class="tokuen-auth-row">
+                            <span>Protected session</span>
+                            <a href="./forget-password/">Forgot Password?</a>
+                        </div>
+                        
+                        <a href="/dashboard/">
+                            <button type="button" class="btn tokuen-login-btn w-100" href="./dashboard/">
+                                Login
+                            </button>
+                        </a>
+                    </form>
+                  
+                    <div class="tokuen-auth-links">
+                        <a href="./register/">Create Account</a>
+                        <a href="./terms-of-service/">Terms</a>
+                        <a href="./privacy-policy/">Privacy</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('auth-notification', event => {
+            alert(event.detail.message);
+        });
+    </script>
+</div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
