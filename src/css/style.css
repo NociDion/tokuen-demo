@@ -236,6 +236,7 @@ body:has(.tokuen-client-dashboard) {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    background-color: #0d1d88;
     background:
         radial-gradient(circle at 82% 16%, rgba(181, 139, 255, 0.6), transparent 30%),
         radial-gradient(circle at 18% 88%, rgba(28, 95, 255, 0.78), transparent 36%),
@@ -696,8 +697,8 @@ body:has(.tokuen-client-dashboard) {
     border: 1px solid #c8d0ef;
     border-left: 0;
     border-radius: 0 10px 10px 0;
-    color: #ffffff;
-    background: linear-gradient(135deg, var(--tokuen-violet), var(--tokuen-magenta));
+    color: #111827;
+    background: rgba(255, 255, 255, 0.92);
     cursor: pointer;
     transition: filter 160ms ease, transform 160ms ease;
 }
@@ -714,6 +715,7 @@ body:has(.tokuen-client-dashboard) {
 
 .tokuen-eye-icon {
     display: block;
+    color: #111827;
 }
 
 .tokuen-eye-closed {
@@ -1055,6 +1057,40 @@ body:has(.tokuen-client-dashboard) {
     .tokuen-password-main {
         width: 100%;
     }
+
+    html:has(.tokuen-password-page),
+    body:has(.tokuen-password-page) {
+        height: auto;
+        min-height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .tokuen-password-page {
+        height: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+        overflow: visible;
+    }
+
+    .tokuen-password-main,
+    .tokuen-password-card,
+    .tokuen-password-card .login-card-body,
+    .tokuen-password-actions {
+        min-width: 0;
+    }
+
+    .tokuen-password-hero h1,
+    .tokuen-password-card .login-box-msg,
+    .tokuen-password-main .tokuen-login-logo small {
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .tokuen-password-card .login-box-msg {
+        font-size: clamp(1rem, 4.5vw, 1.25rem);
+        line-height: 1.35;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1381,13 +1417,51 @@ body:has(.tokuen-client-dashboard) {
 }
 
 .tokuen-register-actions .tokuen-login-btn {
-    width: min(240px, 100%);
+    min-width: 220px;
+    min-height: 54px;
+    padding-inline: 26px;
+    border-radius: 12px;
+    font-size: 1rem;
+    box-shadow: 0 16px 32px rgba(86, 75, 237, 0.3);
+}
+
+.tokuen-register-actions > a:first-child {
+    display: inline-flex;
+    text-decoration: none;
+}
+
+.tokuen-register-actions .tokuen-login-btn::after {
+    content: "→";
+    margin-left: 10px;
+    font-size: 1.2em;
+    transition: transform 160ms ease;
+}
+
+.tokuen-register-actions .tokuen-login-btn:hover::after,
+.tokuen-register-actions .tokuen-login-btn:focus-visible::after {
+    transform: translateX(3px);
 }
 
 .tokuen-register-back {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     color: var(--tokuen-violet);
     font-weight: 800;
     text-decoration: none;
+}
+
+.tokuen-register-back::before {
+    content: "←";
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
+.tokuen-register-back:hover,
+.tokuen-register-back:focus-visible {
+    color: var(--tokuen-blue);
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
 
 .tokuen-register-form > p {
@@ -1397,7 +1471,10 @@ body:has(.tokuen-client-dashboard) {
     font-size: 0.86rem;
 }
 
-@media (max-width: 960px) {
+/* Keep legal content visible at laptop widths and browser zoom levels. The
+   two-column layout needs more than 960px once its fixed-width policy card
+   and page padding are accounted for. */
+@media (max-width: 1200px) {
     .tokuen-register-page {
         padding: 20px;
         overflow: auto;
@@ -1662,7 +1739,80 @@ body:has(.tokuen-client-dashboard) {
     color: var(--tokuen-violet);
 }
 
-@media (max-width: 960px) {
+/* Legal documents must remain a normal, readable document flow. A fixed-height
+   split layout can hide the policy column when preview panes or zoom alter the
+   available inline space. */
+.tokuen-legal-page {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: auto;
+}
+
+.tokuen-legal-shell {
+    grid-template-columns: minmax(0, 780px);
+    height: auto;
+    max-width: 780px;
+}
+
+.tokuen-legal-hero {
+    gap: 30px;
+    min-height: 0;
+}
+
+.tokuen-legal-card {
+    overflow: visible;
+}
+
+/* Keep the legal navigation available without placing a full-height hero ahead
+   of the privacy document. */
+.tokuen-privacy-page .tokuen-legal-hero {
+    display: flex;
+    align-items: stretch;
+    gap: 18px;
+    min-height: 0;
+    padding: 24px 26px;
+}
+
+.tokuen-privacy-page .tokuen-legal-hero > div:nth-child(2) {
+    text-align: left;
+}
+
+.tokuen-privacy-page .tokuen-legal-hero .tokuen-kicker {
+    margin-bottom: 8px;
+}
+
+.tokuen-privacy-page .tokuen-legal-hero h1 {
+    margin: 0 0 8px;
+    font-size: clamp(1.85rem, 3.6vw, 2.5rem);
+    line-height: 1.05;
+}
+
+.tokuen-privacy-page .tokuen-legal-hero p {
+    max-width: 500px;
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
+.tokuen-privacy-page .tokuen-legal-nav {
+    display: grid;
+    flex: 0 0 auto;
+    justify-content: stretch;
+    gap: 10px;
+}
+
+.tokuen-privacy-page .tokuen-legal-nav a {
+    padding: 12px 14px;
+}
+
+/* Policy text is essential page content, not an optional scroll animation.
+   Keep it rendered even when the reveal observer has not run yet. */
+.tokuen-privacy-page .tokuen-legal-card.tokuen-reveal {
+    opacity: 1;
+    transform: none;
+}
+
+@media (max-width: 1200px) {
     .tokuen-legal-page {
         height: auto;
         min-height: 100vh;
@@ -1682,7 +1832,7 @@ body:has(.tokuen-client-dashboard) {
     }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1200px) {
     html:has(.tokuen-legal-page),
     body:has(.tokuen-legal-page),
     .app-body:has(.tokuen-legal-page) {
@@ -1693,6 +1843,31 @@ body:has(.tokuen-client-dashboard) {
             radial-gradient(circle at 82% 16%, rgba(181, 139, 255, 0.6), transparent 30%),
             radial-gradient(circle at 18% 88%, rgba(28, 95, 255, 0.78), transparent 36%),
             linear-gradient(135deg, #05093f 0%, #101f82 46%, #7437ee 100%);
+    }
+}
+
+/* A narrow portrait window can report a large CSS width when browser zoom is
+   active. Keep the policy in normal stacked flow so its card is visible as
+   soon as the page opens. */
+@media (orientation: portrait) {
+    .tokuen-legal-page {
+        height: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+        overflow: visible;
+    }
+
+    .tokuen-legal-shell {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .tokuen-legal-hero {
+        min-height: 0;
+    }
+
+    .tokuen-legal-card {
+        overflow: visible;
     }
 }
 
@@ -2037,6 +2212,34 @@ body:has(.tokuen-client-dashboard) {
     gap: 28px;
 }
 
+.tokuen-client-topnav-profile {
+    display: none;
+}
+
+.tokuen-client-topnav-avatar {
+    display: block;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 12px 28px rgba(86, 75, 237, 0.25);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background: linear-gradient(135deg, #3158f5, #7b3ff2);
+}
+
+@media (max-width: 760px) {
+    .tokuen-client-topnav-profile {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .tokuen-client-topnav {
+        gap: 12px;
+    }
+}
+
 .tokuen-client-topnav a {
     color: #69709a;
     font-weight: 700;
@@ -2168,6 +2371,20 @@ body:has(.tokuen-client-dashboard) {
     padding: 24px;
 }
 
+/* Let the copy shrink and wrap inside grid cards instead of forcing the card
+   wider than its column at intermediate desktop widths. */
+.tokuen-client-stats article > div,
+.tokuen-donut-wrap > *,
+.tokuen-panel-header > * {
+    min-width: 0;
+}
+
+.tokuen-client-stats p,
+.tokuen-client-stats strong,
+.tokuen-client-stats small {
+    overflow-wrap: anywhere;
+}
+
 .tokuen-stat-icon {
     flex: 0 0 auto;
     width: 58px;
@@ -2217,7 +2434,13 @@ body:has(.tokuen-client-dashboard) {
 }
 
 .tokuen-client-panel {
+    display: flex;
+    flex-direction: column;
     padding: 24px;
+}
+
+.tokuen-client-panel.tokuen-client-chart {
+    padding-bottom: 16px;
 }
 
 .tokuen-panel-header {
@@ -2262,8 +2485,11 @@ body:has(.tokuen-client-dashboard) {
 
 .tokuen-chart-area {
     position: relative;
-    overflow: hidden;
-    height: 260px;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: clamp(220px, 22vw, 260px);
+    padding: 0 10px 0 8px;
     border-radius: 12px;
     background:
         linear-gradient(rgba(9, 13, 63, 0.06) 1px, transparent 1px),
@@ -2272,33 +2498,48 @@ body:has(.tokuen-client-dashboard) {
     background-size: 100% 52px, 80px 100%, auto;
 }
 
-.tokuen-chart-path {
-    position: absolute;
-    inset: 72px 42px 76px;
-    border-bottom: 5px solid #5966ff;
-    border-left: 5px solid transparent;
-    border-radius: 0 0 0 18px;
-    transform: skewY(-12deg);
-    box-shadow: 0 18px 34px rgba(89, 102, 255, 0.18);
-}
-
-.tokuen-chart-area::after {
-    content: "";
-    position: absolute;
-    inset: 122px 42px 42px;
-    background: linear-gradient(180deg, rgba(123, 63, 242, 0.18), transparent);
-    clip-path: polygon(0 54%, 22% 42%, 44% 26%, 68% 34%, 100% 0, 100% 100%, 0 100%);
-}
-
-.tokuen-chart-point {
-    position: absolute;
+.tokuen-chart-area > * {
+    position: relative;
     z-index: 1;
-    width: 16px;
-    height: 16px;
-    border: 4px solid #ffffff;
-    border-radius: 50%;
-    background: #5966ff;
-    box-shadow: 0 8px 20px rgba(89, 102, 255, 0.35);
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* The space remaining after the persistent sidebar is much smaller than the
+   browser width. Switch to the roomy two-column dashboard before cards get
+   squeezed between desktop and mobile breakpoints. */
+@media (min-width: 761px) and (max-width: 1380px) {
+    .tokuen-client-dashboard {
+        grid-template-columns: 240px minmax(0, 1fr);
+    }
+
+    .tokuen-client-main {
+        padding-inline: 30px;
+    }
+
+    .tokuen-client-topnav {
+        margin-inline: -30px;
+        padding-inline: 30px;
+    }
+
+    .tokuen-client-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tokuen-client-stats article {
+        min-height: 126px;
+        padding: 20px;
+    }
+
+    .tokuen-client-grid,
+    .tokuen-client-grid.bottom {
+        grid-template-columns: 1fr;
+    }
+
+    .tokuen-donut-wrap {
+        grid-template-columns: 180px minmax(0, 1fr);
+    }
 }
 
 .tokuen-chart-point.p1 { left: 17%; top: 59%; }
@@ -2309,7 +2550,8 @@ body:has(.tokuen-client-dashboard) {
 .tokuen-chart-labels {
     display: flex;
     justify-content: space-between;
-    margin-top: 12px;
+    width: calc(100% - 18px);
+    margin: 12px auto 0;
     color: var(--tokuen-muted);
     font-size: 0.85rem;
     font-weight: 700;
@@ -2317,27 +2559,29 @@ body:has(.tokuen-client-dashboard) {
 
 .tokuen-donut-wrap {
     display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 24px;
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 22px;
     align-items: center;
     min-height: 260px;
 }
 
 .tokuen-donut {
+    position: relative;
     width: 180px;
     aspect-ratio: 1;
     border-radius: 50%;
-    background: conic-gradient(#3158f5 0 68%, #7b3ff2 68% 100%);
+    background: conic-gradient(#7b3ff2 0 68%, #3158f5 68% 100%);
     box-shadow: 0 24px 54px rgba(86, 75, 237, 0.25);
-    position: relative;
+    margin: 0 auto;
 }
 
 .tokuen-donut::after {
     content: "";
     position: absolute;
-    inset: 42px;
+    inset: 38px;
     border-radius: 50%;
     background: #ffffff;
+    box-shadow: inset 0 0 0 1px rgba(218, 224, 246, 0.75);
 }
 
 .tokuen-status-list,
@@ -2357,9 +2601,10 @@ body:has(.tokuen-client-dashboard) {
 }
 
 .tokuen-status-list p {
-    display: flex;
+    display: grid;
+    grid-template-columns: 12px minmax(0, 1fr) auto;
     align-items: center;
-    justify-content: space-between;
+    gap: 10px;
     color: var(--tokuen-muted);
     font-weight: 700;
 }
@@ -2369,6 +2614,7 @@ body:has(.tokuen-client-dashboard) {
     height: 10px;
     border-radius: 50%;
     background: #3158f5;
+    display: inline-block;
 }
 
 .tokuen-status-list p:nth-child(2) span {
@@ -3313,6 +3559,22 @@ body:has(.tokuen-client-dashboard) {
 }
 
 @media (max-width: 760px) {
+    .tokuen-client-grid,
+    .tokuen-client-grid.bottom,
+    .tokuen-loans-layout,
+    .tokuen-loans-grid,
+    .tokuen-payment-hero,
+    .tokuen-payment-grid,
+    .tokuen-payment-grid.bottom,
+    .tokuen-application-hero,
+    .tokuen-application-grid,
+    .tokuen-application-grid.bottom,
+    .tokuen-transaction-grid,
+    .tokuen-settings-grid,
+    .tokuen-settings-grid.bottom {
+        grid-template-columns: 1fr !important;
+    }
+
     .tokuen-client-dashboard {
         display: flex;
         flex-direction: column;
@@ -3947,14 +4209,16 @@ button.is-success {
 }
 
 .tokuen-chart-svg {
+    display: block;
     width: 100%;
     height: 100%;
+    overflow: visible;
 }
 
 .tokuen-chart-line-path {
     fill: none;
     stroke: #5966ff;
-    stroke-width: 4;
+    stroke-width: 5;
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-dasharray: 600;
@@ -4317,13 +4581,12 @@ body.tokuen-page-leaving {
     }
 
     .tokuen-mobile-carousel {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
+        display: grid;
+        grid-template-columns: 1fr;
+        overflow: visible;
+        scroll-snap-type: none;
         gap: 14px;
-        padding-bottom: 4px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
+        padding-bottom: 0;
     }
 
     .tokuen-mobile-carousel::-webkit-scrollbar {
@@ -4331,8 +4594,9 @@ body.tokuen-page-leaving {
     }
 
     .tokuen-mobile-carousel .tokuen-loan-card {
-        flex: 0 0 86%;
-        scroll-snap-align: start;
+        flex: 0 0 auto;
+        width: 100%;
+        scroll-snap-align: none;
     }
 
     .tokuen-transaction-row {
@@ -4418,9 +4682,7 @@ body.tokuen-page-leaving {
 :root[data-theme="dark"] .tokuen-transaction-stats article,
 :root[data-theme="dark"] .tokuen-loan-card,
 :root[data-theme="dark"] .tokuen-loan-feature,
-:root[data-theme="dark"] .tokuen-auth-card,
-:root[data-theme="dark"] .tokuen-register-card,
-:root[data-theme="dark"] .tokuen-legal-card,
+:root[data-theme="dark"] .tokuen-loan-side article,
 :root[data-theme="dark"] .tokuen-modal,
 :root[data-theme="dark"] .tokuen-toast {
     border-color: rgba(120, 130, 190, 0.28);
@@ -4430,6 +4692,41 @@ body.tokuen-page-leaving {
 
 :root[data-theme="dark"] .tokuen-client-topnav {
     background: rgba(8, 12, 40, 0.88);
+}
+
+:root[data-theme="dark"] .tokuen-login-page,
+:root[data-theme="dark"] .tokuen-register-page,
+:root[data-theme="dark"] .tokuen-password-page,
+:root[data-theme="dark"] .tokuen-legal-page {
+    background: inherit;
+    color: inherit;
+}
+
+/* Account recovery keeps its branded gradient in dark mode; inheriting the
+   application background left a dark block beneath the mobile form. */
+:root[data-theme="dark"] .tokuen-password-page {
+    background-color: #1020a9;
+    background-image:
+        radial-gradient(circle at 82% 16%, rgba(181, 139, 255, 0.68), transparent 30%),
+        radial-gradient(circle at 18% 88%, rgba(28, 95, 255, 0.82), transparent 36%),
+        linear-gradient(135deg, #05093f 0%, #1020a9 40%, #3b59ff 72%, #7437ee 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+:root[data-theme="dark"] .tokuen-login-page .tokuen-auth-card,
+:root[data-theme="dark"] .tokuen-login-page .tokuen-auth-card .login-card-body,
+:root[data-theme="dark"] .tokuen-register-page .tokuen-register-card,
+:root[data-theme="dark"] .tokuen-legal-page .tokuen-legal-card {
+    background: rgba(255, 255, 255, 0.96) !important;
+    color: #1d2547 !important;
+    border-color: rgba(218, 224, 246, 0.95) !important;
+}
+
+:root[data-theme="dark"] .tokuen-login-page .tokuen-auth-card .login-card-body *,
+:root[data-theme="dark"] .tokuen-register-page .tokuen-register-card *,
+:root[data-theme="dark"] .tokuen-legal-page .tokuen-legal-card * {
+    color: inherit;
 }
 
 :root[data-theme="dark"] .tokuen-status-list p,
@@ -4451,9 +4748,148 @@ body.tokuen-page-leaving {
 :root[data-theme="dark"] .tokuen-application-help p,
 :root[data-theme="dark"] .tokuen-transaction-help p,
 :root[data-theme="dark"] .tokuen-settings-fields input,
-:root[data-theme="dark"] .tokuen-settings-identity {
-    background: rgba(255, 255, 255, 0.04);
+:root[data-theme="dark"] .tokuen-settings-identity,
+:root[data-theme="dark"] .tokuen-loan-meta p,
+:root[data-theme="dark"] .tokuen-payment-row strong,
+:root[data-theme="dark"] .tokuen-transaction-row strong,
+:root[data-theme="dark"] .tokuen-transaction-row b,
+:root[data-theme="dark"] .tokuen-status-list strong,
+:root[data-theme="dark"] .tokuen-loan-list strong,
+:root[data-theme="dark"] .tokuen-offer-list strong {
+    background: rgba(31, 42, 81, 0.92);
+    border-color: rgba(120, 130, 190, 0.24);
     color: var(--tokuen-ink);
+}
+
+:root[data-theme="dark"] .tokuen-status-list p,
+:root[data-theme="dark"] .tokuen-client-table div,
+:root[data-theme="dark"] .tokuen-loan-list p,
+:root[data-theme="dark"] .tokuen-offer-list p,
+:root[data-theme="dark"] .tokuen-payment-row,
+:root[data-theme="dark"] .tokuen-transaction-row,
+:root[data-theme="dark"] .tokuen-loan-meta p,
+:root[data-theme="dark"] .tokuen-payment-help p,
+:root[data-theme="dark"] .tokuen-transaction-help p {
+    border: 1px solid rgba(120, 130, 190, 0.22);
+    background: rgba(31, 42, 81, 0.92);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+:root[data-theme="dark"] .tokuen-loan-list small,
+:root[data-theme="dark"] .tokuen-offer-list span,
+:root[data-theme="dark"] .tokuen-loan-meta span,
+:root[data-theme="dark"] .tokuen-client-table small,
+:root[data-theme="dark"] .tokuen-payment-row span,
+:root[data-theme="dark"] .tokuen-transaction-row span {
+    color: var(--tokuen-muted);
+}
+
+/* Interactive and nested surfaces need their own dark fills; otherwise they
+   retain the light-theme background while inheriting the light text color. */
+:root[data-theme="dark"] .tokuen-loan-side article,
+:root[data-theme="dark"] .tokuen-loan-actions button,
+:root[data-theme="dark"] .tokuen-payment-actions button:last-child,
+:root[data-theme="dark"] .tokuen-method-list button {
+    border-color: rgba(120, 130, 190, 0.28);
+    color: var(--tokuen-ink);
+    background: rgba(31, 42, 81, 0.96);
+}
+
+:root[data-theme="dark"] .tokuen-loan-side strong,
+:root[data-theme="dark"] .tokuen-loan-side small,
+:root[data-theme="dark"] .tokuen-method-list button strong {
+    color: var(--tokuen-ink);
+}
+
+:root[data-theme="dark"] .tokuen-loan-side small,
+:root[data-theme="dark"] .tokuen-method-list button span {
+    color: var(--tokuen-muted);
+}
+
+:root[data-theme="dark"] .tokuen-loan-actions button:nth-child(2),
+:root[data-theme="dark"] .tokuen-payment-actions button:first-child {
+    border-color: transparent;
+    color: #ffffff;
+    background: linear-gradient(135deg, #3158f5, #7b3ff2);
+}
+
+:root[data-theme="dark"] .tokuen-loan-actions button:hover,
+:root[data-theme="dark"] .tokuen-loan-actions button:focus,
+:root[data-theme="dark"] .tokuen-method-list button:hover,
+:root[data-theme="dark"] .tokuen-method-list button:focus {
+    border-color: transparent;
+    color: #ffffff;
+    background: linear-gradient(135deg, #3158f5, #7b3ff2);
+}
+
+:root[data-theme="dark"] .tokuen-method-list button:hover span,
+:root[data-theme="dark"] .tokuen-method-list button:focus span {
+    color: #eef1ff;
+}
+
+/* Payments, applications, transactions, and settings all reuse light-theme
+   controls. Give those controls a dark surface instead of relying on inherited
+   text colors alone. */
+:root[data-theme="dark"] .tokuen-payment-row.head,
+:root[data-theme="dark"] .tokuen-transaction-row.head {
+    background: transparent;
+    border-color: transparent;
+    color: var(--tokuen-muted);
+}
+
+:root[data-theme="dark"] .tokuen-application-options button,
+:root[data-theme="dark"] .tokuen-application-actions button:last-child,
+:root[data-theme="dark"] .tokuen-transaction-tools button,
+:root[data-theme="dark"] .tokuen-transaction-actions button,
+:root[data-theme="dark"] .tokuen-settings-actions button:not(:first-child),
+:root[data-theme="dark"] .tokuen-settings-list button,
+:root[data-theme="dark"] .tokuen-device-list button,
+:root[data-theme="dark"] .tokuen-settings-identity,
+:root[data-theme="dark"] .tokuen-toggle-list label {
+    border-color: rgba(120, 130, 190, 0.28);
+    color: var(--tokuen-ink);
+    background: rgba(31, 42, 81, 0.96);
+}
+
+:root[data-theme="dark"] .tokuen-application-options button span,
+:root[data-theme="dark"] .tokuen-transaction-tools button,
+:root[data-theme="dark"] .tokuen-settings-identity span,
+:root[data-theme="dark"] .tokuen-settings-list span,
+:root[data-theme="dark"] .tokuen-device-list span,
+:root[data-theme="dark"] .tokuen-settings-help span,
+:root[data-theme="dark"] .tokuen-settings-fields label {
+    color: var(--tokuen-muted);
+}
+
+:root[data-theme="dark"] .tokuen-application-options button:hover,
+:root[data-theme="dark"] .tokuen-application-options button:focus,
+:root[data-theme="dark"] .tokuen-application-options button.is-selected,
+:root[data-theme="dark"] .tokuen-transaction-tools button.active,
+:root[data-theme="dark"] .tokuen-transaction-tools button:hover,
+:root[data-theme="dark"] .tokuen-transaction-tools button:focus,
+:root[data-theme="dark"] .tokuen-transaction-actions button:hover,
+:root[data-theme="dark"] .tokuen-transaction-actions button:focus,
+:root[data-theme="dark"] .tokuen-settings-actions button:hover,
+:root[data-theme="dark"] .tokuen-settings-actions button:focus,
+:root[data-theme="dark"] .tokuen-settings-list button:hover,
+:root[data-theme="dark"] .tokuen-settings-list button:focus,
+:root[data-theme="dark"] .tokuen-device-list button:hover,
+:root[data-theme="dark"] .tokuen-device-list button:focus {
+    border-color: transparent;
+    color: #ffffff;
+    background: linear-gradient(135deg, #3158f5, #7b3ff2);
+}
+
+:root[data-theme="dark"] .tokuen-application-options button:hover span,
+:root[data-theme="dark"] .tokuen-application-options button:focus span,
+:root[data-theme="dark"] .tokuen-application-options button.is-selected span {
+    color: #eef1ff;
+}
+
+:root[data-theme="dark"] .tokuen-settings-fields input {
+    border-color: rgba(120, 130, 190, 0.35);
+    color: var(--tokuen-ink);
+    background: #111a45;
 }
 
 :root[data-theme="dark"] .tokuen-bottom-nav {

@@ -313,10 +313,10 @@ const buildChartSvg = (container) => {
     container.innerHTML = '';
 
     const values = [42, 58, 72, 61, 78, 88];
-    const width = 400;
-    const height = 200;
-    const padX = 24;
-    const padY = 28;
+    const width = 420;
+    const height = 210;
+    const padX = 18;
+    const padY = 22;
     const max = 100;
     const step = (width - padX * 2) / (values.length - 1);
 
@@ -335,7 +335,9 @@ const buildChartSvg = (container) => {
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('class', 'tokuen-chart-svg');
     svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
-    svg.setAttribute('preserveAspectRatio', 'none');
+    // Keep the plotted line proportional when the dashboard panel changes
+    // shape; the previous `none` value distorted it at tablet widths.
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
     svg.innerHTML = `
         <defs>
             <linearGradient id="tokuenChartFill" x1="0" y1="0" x2="0" y2="1">
@@ -347,7 +349,7 @@ const buildChartSvg = (container) => {
         <path class="tokuen-chart-line-path" d="${linePath}" />
         <g class="tokuen-chart-points-group">
             ${points.map((point, index) => `
-                <circle class="tokuen-chart-dot" cx="${point.x}" cy="${point.y}" r="5" style="--dot-delay: ${index * 0.08}s" />
+                <circle class="tokuen-chart-dot" cx="${point.x}" cy="${point.y}" r="6" style="--dot-delay: ${index * 0.08}s" />
             `).join('')}
         </g>
     `;
@@ -388,9 +390,14 @@ const initDarkMode = () => {
 
     document.documentElement.dataset.themeInit = 'true';
 
+    const exemptPageSelector = '.tokuen-login-page, .tokuen-register-page, .tokuen-password-page, .tokuen-legal-page';
+    const isExemptPage = document.querySelector(exemptPageSelector);
     const savedTheme = localStorage.getItem(THEME_KEY);
-    if (savedTheme === 'dark') {
+
+    if (!isExemptPage && savedTheme === 'dark') {
         document.documentElement.dataset.theme = 'dark';
+    } else {
+        delete document.documentElement.dataset.theme;
     }
 
     const applyTheme = (theme) => {
@@ -764,7 +771,7 @@ const initPulseIndicators = () => {
 
 const initMobileLoanCarousel = () => {
     document.querySelectorAll('.tokuen-loans-grid').forEach((grid) => {
-        grid.classList.add('tokuen-mobile-carousel');
+        grid.classList.remove('tokuen-mobile-carousel');
     });
 };
 
