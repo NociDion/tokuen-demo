@@ -1,25 +1,35 @@
 import 'admin-lte/dist/js/adminlte';
-import './css/style.css'
+import './css/style.css';
+import { initUiEffects } from './ui-effects.js';
+import { initAuthBackgroundMotion } from './auth-background.js';
 
 const initClientDashboard = () => {
-    document.documentElement.style.visibility = 'visible'
     const dashboard = document.querySelector('[data-client-dashboard]');
 
-    if (!dashboard || dashboard.dataset.navReady === 'true') {
+    if (!dashboard) {
+        return;
+    }
+
+    const mobileQuery = window.matchMedia('(max-width: 760px)');
+
+    // A page restored from the browser cache can retain the mobile drawer's
+    // previous open class. Always close it before doing anything else.
+    if (dashboard.dataset.navReady === 'true') {
+        if (mobileQuery.matches) {
+            dashboard.classList.remove('is-sidebar-collapsed');
+            dashboard.querySelector('[data-sidebar-toggle]')?.setAttribute('aria-expanded', 'false');
+        }
         return;
     }
 
     const toggle = dashboard.querySelector('[data-sidebar-toggle]');
     const sidebar = dashboard.querySelector('.tokuen-client-sidebar');
     const navLinks = dashboard.querySelectorAll('.tokuen-client-nav a');
-    const mobileQuery = window.matchMedia('(max-width: 760px)');
     const storageKey = 'tokuen-sidebar-collapsed';
 
     if (!toggle || !sidebar) {
         return;
     }
-
-    dashboard.dataset.navReady = 'true';
 
     const setExpanded = (isExpanded) => {
         toggle.setAttribute('aria-expanded', String(isExpanded));
@@ -108,8 +118,18 @@ const initClientDashboard = () => {
 
     mobileQuery.addEventListener('change', applyState);
     applyState();
+    // CSS only permits the mobile drawer to open after this initial reset.
+    dashboard.dataset.navReady = 'true';
     setActiveLink();
 };
 
-document.addEventListener('DOMContentLoaded', initClientDashboard);
-document.addEventListener('livewire:navigated', initClientDashboard);
+const boot = () => {
+    initClientDashboard();
+    initUiEffects();
+    initAuthBackgroundMotion();
+    document.documentElement.style.visibility = 'visible';
+};
+
+document.addEventListener('DOMContentLoaded', boot);
+document.addEventListener('livewire:navigated', boot);
+window.addEventListener('pageshow', boot);
