@@ -125,8 +125,6 @@ const initClientDashboard = () => {
 
 const boot = () => {
     initClientDashboard();
-    initUiEffects();
-    initAuthBackgroundMotion();
     document.documentElement.style.visibility = 'visible';
 };
 
